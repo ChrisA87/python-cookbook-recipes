@@ -36,7 +36,7 @@ def name_cleanser(recipe):
 
 def recipe_handler(recipe, args):
     if recipe is None:
-        print('recipe not found')
+        print('No recipe found')
     else:
         print(f'Found recipe: {name_cleanser(recipe)}')
         if args.code:
@@ -47,6 +47,7 @@ def main(argv):
     args = parse_args(argv)
     recipe = find_recipe(args)
     recipe_handler(recipe, args)
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
