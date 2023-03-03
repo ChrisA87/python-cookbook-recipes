@@ -80,7 +80,7 @@ def recipe_handler(recipe, args):
 def get_recipe_module(recipe):
     chapter = recipe.parent.parent.stem
     submodule = recipe.parent.stem
-    return import_module(f'src.{chapter}.{submodule}.example')
+    return import_module(f'recipes.{chapter}.{submodule}.example')
 
 
 def run_recipe(recipe):
