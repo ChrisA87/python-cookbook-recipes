@@ -2,6 +2,7 @@ import sys
 import re
 from pathlib import Path
 from argparse import ArgumentParser
+from collections import defaultdict
 
 
 ROOT = Path(__file__).parent.parent
@@ -9,10 +10,39 @@ ROOT = Path(__file__).parent.parent
 
 def parse_args(argv):
     parser = ArgumentParser()
-    parser.add_argument('chapter', type=int)
-    parser.add_argument('number', type=int)
+    parser.add_argument('chapter', nargs='?', type=int)
+    parser.add_argument('number', nargs='?', type=int)
     parser.add_argument('--code', help='print the recipe code', action='store_true')
-    return parser.parse_args(argv)
+
+    args = parser.parse_args(argv)
+    if args.chapter is None or args.number is None:
+        render_recipes(get_recipes())
+        sys.exit(0)
+    return args
+
+
+def get_recipes():
+    result = defaultdict(list)
+
+    for chapter in ROOT.iterdir():
+        if chapter.stem[0].isdigit():
+            for recipe in sorted(chapter.iterdir()):
+                result[chapter.stem].append(recipe.stem)
+    return result
+
+
+def clean_text(text):
+    num, text = text.split('_', maxsplit=1)
+    return f"{int(num):>2}) {text.replace('_', ' ').capitalize()}"
+
+
+def render_recipes(recipes):
+    for chapter, recipes in recipes.items():
+        print(clean_text(chapter).title())
+        print('=' * 50)
+        for recipe in recipes:
+            print(f'  {clean_text(recipe)}')
+        print()
 
 
 def find_recipe(args):
