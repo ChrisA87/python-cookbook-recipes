@@ -1,8 +1,8 @@
 import sys
-import re
 from pathlib import Path
 from argparse import ArgumentParser
 from collections import defaultdict
+from importlib import import_module
 
 
 ROOT = Path(__file__).parent.parent
@@ -62,9 +62,23 @@ def recipe_handler(recipe, args):
     if recipe is None:
         print('No recipe found')
     else:
-        print(f'Found recipe: {clean_text(recipe.parent.stem)}')
+        print(f'Found recipe: {clean_text(recipe.parent.stem)}\n')
         if args.code:
             print(recipe.read_text())
+            sys.exit(0)
+        run_recipe(recipe)
+
+
+def get_chapter_example(recipe):
+    return recipe.parent.parent.stem, recipe.parent.stem
+
+
+def run_recipe(recipe):
+    chapter, example = get_chapter_example(recipe)
+    module = import_module(f'src.{chapter}.{example}.example')
+    func = getattr(module, 'main')
+    print('Running...')
+    func()
 
 
 def main(argv):
