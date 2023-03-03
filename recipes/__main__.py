@@ -5,7 +5,7 @@ from collections import defaultdict
 from importlib import import_module
 
 
-ROOT = Path(__file__).parent.parent
+ROOT = Path(__file__).parent
 
 
 def parse_args(argv):
