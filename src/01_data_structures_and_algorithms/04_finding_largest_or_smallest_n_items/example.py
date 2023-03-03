@@ -5,6 +5,7 @@ You want to find the largest of smallest N items in a collection.
 import heapq
 from pprint import pprint
 
+
 def example_1():
     nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
     print(f'Nums: {nums}')
@@ -28,8 +29,12 @@ def example_2():
     print(f'\n3 most expensive stocks:')
     pprint(heapq.nlargest(3, portfolio, key=lambda x: x["price"]))
 
-if __name__ == '__main__':
+
+def main():
     example_1()
     print('=' * 50)
     example_2()
-    
+
+
+if __name__ == '__main__':
+    main()

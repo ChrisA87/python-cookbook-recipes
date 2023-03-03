@@ -26,7 +26,11 @@ def read_data(name):
     else:
         with open(name, 'r') as f:
             return f.read()
-    
-if __name__ == '__main__':
+
+def main():
     example_1()
     example_2()
+
+
+if __name__ == '__main__':
+    main()

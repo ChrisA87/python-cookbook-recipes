@@ -31,8 +31,9 @@ class Item:
         
     def __repr__(self):
         return f"Item({self.name})"
-    
-if __name__ == '__main__':
+
+
+def main():
     print('instantiating queue')
     q = PriorityQueue()
     print(q)
@@ -45,3 +46,7 @@ if __name__ == '__main__':
     for i in range(q.size):
         item = q.pop()
         print(f'Popped {item}')
+
+
+if __name__ == '__main__':
+    main()

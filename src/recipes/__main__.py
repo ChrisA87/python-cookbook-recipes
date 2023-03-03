@@ -24,7 +24,7 @@ def parse_args(argv):
 def get_recipes():
     result = defaultdict(list)
 
-    for chapter in ROOT.iterdir():
+    for chapter in sorted(ROOT.iterdir()):
         if chapter.stem[0].isdigit():
             for recipe in sorted(chapter.iterdir()):
                 result[chapter.stem].append(recipe.stem)
@@ -58,17 +58,11 @@ def find_recipe(args):
     return result
 
 
-def name_cleanser(recipe):
-    result = recipe.parent.stem
-    result = re.sub(r'[\d_]', ' ', result).strip()
-    return result.title()
-
-
 def recipe_handler(recipe, args):
     if recipe is None:
         print('No recipe found')
     else:
-        print(f'Found recipe: {name_cleanser(recipe)}')
+        print(f'Found recipe: {clean_text(recipe.parent.stem)}')
         if args.code:
             print(recipe.read_text())
 

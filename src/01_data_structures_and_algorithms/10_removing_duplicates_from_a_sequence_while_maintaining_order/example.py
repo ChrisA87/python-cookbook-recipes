@@ -17,8 +17,9 @@ def dedupe_unhashable(items, key):
         if val not in seen:
             yield item
             seen.add(val)
-            
-if __name__ == '__main__':
+
+
+def main():
     a = [1, 5, 2, 1, 9, 1, 5, 10]
     b = [{'x': 1, 'y': 2}, {'x': 1, 'y': 3}, {'x': 1, 'y': 2}, {'x': 2, 'y': 4}]
 
@@ -34,3 +35,7 @@ if __name__ == '__main__':
     print(f'\nDe-duping {b} (unhashable)')
     print(' (de-duping on the x key value)')
     print(list(dedupe_unhashable(b, key=lambda d: d['x'])), end='\n\n')
+
+
+if __name__ == '__main__':
+    main()
