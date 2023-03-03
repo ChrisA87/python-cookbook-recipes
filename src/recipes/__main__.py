@@ -13,6 +13,7 @@ def parse_args(argv):
     parser.add_argument('chapter', nargs='?', type=int)
     parser.add_argument('number', nargs='?', type=int)
     parser.add_argument('--code', help='print the recipe code', action='store_true')
+    parser.add_argument('--doc', help='print the recipe docstring', action='store_true')
 
     args = parser.parse_args(argv)
     if args.chapter is None or args.number is None:
@@ -62,20 +63,28 @@ def recipe_handler(recipe, args):
     if recipe is None:
         print('No recipe found')
     else:
-        print(f'Found recipe: {clean_text(recipe.parent.stem)}\n')
+        module = get_recipe_module(recipe)
+        print(f'Found recipe:\n{clean_text(recipe.parent.stem)}')
+        print(module.__doc__)
+
         if args.code:
             print(recipe.read_text())
             sys.exit(0)
+
+        if args.doc:
+            sys.exit(0)
+
         run_recipe(recipe)
 
 
-def get_chapter_example(recipe):
-    return recipe.parent.parent.stem, recipe.parent.stem
+def get_recipe_module(recipe):
+    chapter = recipe.parent.parent.stem
+    submodule = recipe.parent.stem
+    return import_module(f'src.{chapter}.{submodule}.example')
 
 
 def run_recipe(recipe):
-    chapter, example = get_chapter_example(recipe)
-    module = import_module(f'src.{chapter}.{example}.example')
+    module = get_recipe_module(recipe)
     func = getattr(module, 'main')
     print('Running...')
     func()
