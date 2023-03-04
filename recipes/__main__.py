@@ -2,7 +2,6 @@ import sys
 from pathlib import Path
 from argparse import ArgumentParser
 from collections import defaultdict
-from importlib import import_module
 from recipes import Recipe
 
 ROOT = Path(__file__).parent
