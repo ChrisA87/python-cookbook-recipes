@@ -29,11 +29,11 @@ def get_recipes():
 
 def render_recipes(recipes):
     for chapter, recipes in recipes.items():
-        print(chapter)
+        print(f'\n{chapter}')
         print('=' * 50)
         for recipe in recipes:
             print(f'  {recipe.example}')
-        print()
+    print()
 
 
 def find_recipe_path(args):
