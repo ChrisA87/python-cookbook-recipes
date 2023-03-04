@@ -1,10 +1,7 @@
 import sys
-from pathlib import Path
 from argparse import ArgumentParser
 from collections import defaultdict
-from recipes import Recipe
-
-ROOT = Path(__file__).parent
+from recipes import Recipe, ROOT
 
 
 def parse_args(argv):
