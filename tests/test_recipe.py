@@ -17,9 +17,9 @@ def test_recipe__invalid_recipe_module_raises_ValueError():
 
 def test_recipes_running(recipe_path, capsys):
     print(f'HERES THE PATH: {recipe_path}')
-    recipe = Recipe(recipe_path)    
+    recipe = Recipe(recipe_path)
     recipe.run()
-    
+
     out, err = capsys.readouterr()
     assert f'Running {recipe}' in out
     assert err == ''

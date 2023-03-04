@@ -1,5 +1,5 @@
 lint:
-	flake8 recipes
+	flake8 recipes tests
 
 test:
 	coverage run --source recipes -m pytest tests
