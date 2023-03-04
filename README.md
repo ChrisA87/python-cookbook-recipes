@@ -14,13 +14,10 @@ Useful recipes from the O'Reilly book [Python Cookbook (3rd edition)](https://ww
     pip install pip-tools
     make pip-install
     ```
-
----
-
-## Run tests
-```
-make test
-```
+4. Check setup by running tests
+    ```
+    make test
+    ```
 
 ---
 
