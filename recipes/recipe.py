@@ -37,6 +37,8 @@ class Recipe:
         return self.path.exists()
 
     def get_module(self):
+        if not self.exists():
+            raise ModuleNotFoundError(f'This recipe couldn\'t be found:\n  {self}')
         return import_module(f"{self._package}.{self._chapter}.{self._example}.{self.module}")
 
     def get_docstring(self):
@@ -46,7 +48,7 @@ class Recipe:
         return self.path.read_text()
 
     def run(self):
-        if self.path.exists():
+        if self.exists():
             print(f'Running {self}')
             getattr(self.get_module(), 'main')()
         else:
