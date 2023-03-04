@@ -1,9 +1,5 @@
-import sys
 import pytest
-from pathlib import Path
-
-ROOT = Path(__file__).parent.parent
-sys.path.append(ROOT)
+from recipes import ROOT
 
 
 @pytest.fixture(params=list(ROOT.glob('**/example.py')))
