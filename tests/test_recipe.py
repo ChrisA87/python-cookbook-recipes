@@ -1,7 +1,6 @@
 import pytest
 from pathlib import Path
 from recipes import Recipe
-from .conftest import ROOT
 
 
 def test_recipe__valid_recipe_module_instantiates(recipe_path):
