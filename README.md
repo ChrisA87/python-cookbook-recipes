@@ -15,10 +15,14 @@ Useful recipes from the O'Reilly book [Python Cookbook (3rd edition)](https://ww
     make pip-install
     ```
 
+---
+
 ## Run tests
 ```
 make test
 ```
+
+---
 
 ## Usage
 
@@ -42,6 +46,8 @@ python recipes 1 5 --code
 ```
 python recipes 1 5 --doc
 ```
+
+---
 
 ## Chapters
 1. [Data structures and algorithms](./recipes/01_data_structures_and_algorithms/)
