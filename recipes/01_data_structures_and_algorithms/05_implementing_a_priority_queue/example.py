@@ -5,21 +5,22 @@ the item with the highest priority on each pop operation.
 
 import heapq
 
+
 class PriorityQueue:
     def __init__(self):
         self._queue = []
         self._index = 0
-        
+
     def push(self, item, priority):
         heapq.heappush(self._queue, (-priority, self._index, item))
         self._index += 1
-        
+
     def pop(self):
         return heapq.heappop(self._queue)[-1]
-    
+
     def __repr__(self):
         return f"PriorityQueue({len(self._queue)} items)"
-    
+
     @property
     def size(self):
         return len(self._queue)
@@ -28,7 +29,7 @@ class PriorityQueue:
 class Item:
     def __init__(self, name):
         self.name = name
-        
+
     def __repr__(self):
         return f"Item({self.name})"
 

@@ -1,5 +1,5 @@
 """
-You want to keep limited history of the last few items seen during iteration 
+You want to keep limited history of the last few items seen during iteration
 or during some kind of processing.
 """
 
@@ -22,7 +22,7 @@ def main():
                 print(prev_line, end='')
             print(line, end='')
             print('-' * 20)
-    
+
 
 if __name__ == '__main__':
-    main()    
+    main()

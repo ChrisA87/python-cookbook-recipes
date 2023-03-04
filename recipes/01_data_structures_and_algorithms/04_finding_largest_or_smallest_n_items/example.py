@@ -11,8 +11,8 @@ def example_1():
     print(f'Nums: {nums}')
     print(f'Largest 3: {heapq.nlargest(3, nums)}')
     print(f'Smallest 3: {heapq.nsmallest(3, nums)}')
-    
-    
+
+
 def example_2():
     portfolio = [
         {'name': 'IBM', 'shares': 100, 'price': 91.1},
@@ -26,7 +26,7 @@ def example_2():
     pprint(portfolio)
     print('\n3 cheapest stocks:')
     pprint(heapq.nsmallest(3, portfolio, key=lambda x: x["price"]))
-    print(f'\n3 most expensive stocks:')
+    print('\n3 most expensive stocks:')
     pprint(heapq.nlargest(3, portfolio, key=lambda x: x["price"]))
 
 
