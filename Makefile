@@ -3,5 +3,3 @@ lint:
 
 test:
 	coverage run --source recipes -m pytest tests
-
-default: lint test
