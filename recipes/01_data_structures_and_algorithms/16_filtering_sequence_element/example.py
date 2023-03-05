@@ -1,5 +1,6 @@
 """
-TODO
+You have data inside a sequence and need to extract values or reduce a
+sequence using some criteria.
 """
 
 
