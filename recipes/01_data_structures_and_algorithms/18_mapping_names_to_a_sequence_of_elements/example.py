@@ -37,10 +37,25 @@ def example_2():
     print(compute_cost(records))
 
 
+def example_3():
+    def dict_to_stock(d):
+        return stock_prototype._replace(**d)
+
+    Stock = namedtuple('Stock', ['name', 'shares', 'price', 'date', 'time'])
+    stock_prototype = Stock('', 0, 0.0, None, None)
+    print(f'Stock prototype: {stock_prototype}')
+
+    d = {'name': 'ACME', 'shares': 100, 'price': 123.45}
+    print(f'dictionary value: {d}')
+    print(f'dict to stock: {dict_to_stock(d)}')
+
+
 def main():
     example_1()
     print('=' * 50)
     example_2()
+    print('=' * 50)
+    example_3()
 
 
 if __name__ == '__main__':
