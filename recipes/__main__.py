@@ -30,6 +30,7 @@ def render_recipes(recipes):
         print('No recipes found')
         return
 
+    print(f"{sum(map(len, recipes.values()))} recipes found")
     for chapter, recipes in recipes.items():
         print(f'\n{chapter}\n{"=" * 50}')
         for recipe in recipes:
