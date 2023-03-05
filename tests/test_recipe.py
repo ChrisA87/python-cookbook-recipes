@@ -20,5 +20,5 @@ def test_recipes_running(recipe_path, capsys):
     recipe.run()
 
     out, err = capsys.readouterr()
-    assert f'Running...' in out
+    assert 'Running...' in out
     assert err == ''

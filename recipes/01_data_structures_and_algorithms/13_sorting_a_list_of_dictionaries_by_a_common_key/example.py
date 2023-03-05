@@ -29,8 +29,8 @@ def main():
     print('\nRecord with min id')
     pprint(min(rows, key=itemgetter('uid')))
 
-    print('\nRecord with max fname')
-    pprint(max(rows, key=itemgetter('fname')))
+    print('\nRecord with max uid')
+    pprint(max(rows, key=itemgetter('uid')))
 
 
 if __name__ == '__main__':

@@ -12,24 +12,24 @@ def parse_args(argv):
     parser.add_argument('--doc', help='print the recipe docstring', action='store_true')
     parser.add_argument('--create', help='create a new recipe skeleton with the name passed to this arg',
                         required=False, type=str)
-
-    args = parser.parse_args(argv)
-    if args.chapter is None or args.number is None:
-        render_recipes(get_recipes())
-        sys.exit(0)
-    return args
+    return parser.parse_args(argv)
 
 
-def get_recipes():
+def get_recipes(chapter=None):
     result = defaultdict(list)
+    pattern = '**/example.py' if chapter is None else f'{chapter:0>2}*/**/example.py'
 
-    for recipe_path in sorted(ROOT.glob('**/example.py')):
+    for recipe_path in sorted(ROOT.glob(pattern)):
         recipe = Recipe(recipe_path)
         result[recipe.chapter].append(recipe)
     return result
 
 
 def render_recipes(recipes):
+    if not recipes:
+        print('No recipes found')
+        return
+
     for chapter, recipes in recipes.items():
         print(f'\n{chapter}\n{"=" * 50}')
         for recipe in recipes:
@@ -69,6 +69,11 @@ def create_new_recipe(args):
 
 def main(argv):
     args = parse_args(argv)
+
+    if args.chapter is None or args.number is None:
+        render_recipes(get_recipes(args.chapter))
+        sys.exit(0)
+
     if args.create:
         create_new_recipe(args)
 

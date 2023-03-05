@@ -28,6 +28,11 @@ Useful recipes from the O'Reilly book [Python Cookbook (3rd edition)](https://ww
 python recipes
 ```
 
+### List all recipes in chapter 1
+```
+python recipes 1
+```
+
 ### Run specific recipe
 To run the recipe code for chapter 1, example 5:
 ```
