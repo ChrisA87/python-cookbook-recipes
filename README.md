@@ -44,6 +44,12 @@ python recipes 1 5 --code
 python recipes 1 5 --doc
 ```
 
+### Create new recipe skeleton
+To create recipe 23 under chapter 1:
+```
+python recipes 1 23 --create "the name of the new recipe"
+```
+
 ---
 
 ## Chapters
