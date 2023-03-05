@@ -49,8 +49,9 @@ class Recipe:
 
     def run(self):
         if self.exists():
-            print(f'Running {self}')
+            print('Running... \n')
             getattr(self.get_module(), 'main')()
+            print()
         else:
             print(f'Couldn\'t find recipe {self.example}')
 

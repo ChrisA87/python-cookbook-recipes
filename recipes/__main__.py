@@ -73,7 +73,7 @@ def main(argv):
         create_new_recipe(args)
 
     recipe = Recipe(find_recipe_path(args))
-    print(f'Found recipe:\n{recipe}')
+    print(f'Found recipe:\n{recipe}\n')
 
     if args.doc:
         print(recipe.get_docstring())
