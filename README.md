@@ -60,3 +60,5 @@ python recipes 1 23 --create "the name of the new recipe"
 ## Chapters
 1. [Data structures and algorithms](./recipes/01_data_structures_and_algorithms/)
 2. [Strings and text](./recipes/02_strings_and_text/)
+3. [Numbers, dates and times](./recipes/03_numbers_dates_and_times/)
+4. [Iterators and generators](./recipes/04_iterators_and_generators/)
