@@ -42,7 +42,7 @@ class Recipe:
         return import_module(f"{self._package}.{self._chapter}.{self._example}.{self.module}")
 
     def get_docstring(self):
-        return self.get_module().__doc__
+        return self.get_module().__doc__.replace('\n', ' ')
 
     def get_code(self):
         return self.path.read_text()

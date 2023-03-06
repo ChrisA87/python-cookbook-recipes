@@ -1,5 +1,5 @@
 """
-You hve built a custom container object thatninternally holds a list,
+You have built a custom container object that internally holds a list,
 tuple or some other iterable. You would like to make iteration work
 with your new container.
 """
