@@ -1,3 +1,7 @@
+.PHONY = lint test
+
+default: lint test
+
 lint:
 	flake8 recipes tests
 
