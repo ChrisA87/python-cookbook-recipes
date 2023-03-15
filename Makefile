@@ -6,7 +6,10 @@ lint:
 	flake8 recipes tests
 
 test:
-	coverage run --source recipes -m pytest tests
+	pytest tests
+
+coverage:
+	coverage run --source recipes -m pytest tests; coverage report
 
 pip-install:
 	pip install pip-tools
