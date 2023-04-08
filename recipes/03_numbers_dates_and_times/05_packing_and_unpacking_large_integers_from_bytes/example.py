@@ -17,7 +17,6 @@ def example_2():
     print('number:', number)
     print('number as bytes (little):', number.to_bytes(16, 'little'))
     print('number as bytes (big):', number.to_bytes(16, 'big'))
-    
 
 
 def main():
