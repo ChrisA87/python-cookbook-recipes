@@ -3,8 +3,6 @@ You need to execute a reduction function (e.g. sum(), min(), max()), but first n
 to transform or filter the data.
 """
 
-import os
-
 
 def main():
     # Output a tuple as CSV
