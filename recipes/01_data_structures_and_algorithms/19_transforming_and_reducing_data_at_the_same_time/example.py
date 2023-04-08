@@ -7,12 +7,6 @@ import os
 
 
 def main():
-    files = os.listdir(os.path.expanduser('~'))
-    if any(name.endswith('.py') for name in files):
-        print('There be python!')
-    else:
-        print('Sorry, no python.')
-
     # Output a tuple as CSV
     s = ('ACME', 50, 123.45)
     print(','.join(str(x) for x in s))

@@ -21,7 +21,7 @@ def example_2():
     print(url.startswith(('http:', 'https:', 's3:', 'ftp:')))
 
 
-def read_data(name):
+def read_data(name):  # pragma: no cover
     if name.startswith(('http:', 'https:', 'ftp:')):
         return urlopen(name).read()
     else:

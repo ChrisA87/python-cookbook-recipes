@@ -30,7 +30,7 @@ def example_1():
     print('Countdown is running')
 
 
-def example_2():
+def example_2():  # pragma: no cover
     class PeriodicTimer:
         def __init__(self, interval):
             self._interval = interval
