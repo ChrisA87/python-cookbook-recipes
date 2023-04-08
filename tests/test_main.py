@@ -1,5 +1,6 @@
 import pytest
 from recipes.__main__ import main
+from recipes import template
 
 
 def test_main_with_no_args_lists_recipes(capsys):
@@ -29,3 +30,7 @@ def test_main__recipe_doesnt_exist(capsys):
     assert exc.value.code == 0
     assert err == ''
     assert 'Recipe not found' in out
+
+
+def test_template():
+    assert template.main() is None
