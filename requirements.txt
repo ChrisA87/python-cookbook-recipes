@@ -6,12 +6,18 @@
 #
 attrs==22.2.0
     # via pytest
+certifi==2023.5.7
+    # via requests
+charset-normalizer==3.1.0
+    # via requests
 coverage==7.2.1
     # via -r requirements.in
 exceptiongroup==1.1.0
     # via pytest
 flake8==6.0.0
     # via -r requirements.in
+idna==3.4
+    # via requests
 iniconfig==2.0.0
     # via pytest
 mccabe==0.7.0
@@ -26,5 +32,9 @@ pyflakes==3.0.1
     # via flake8
 pytest==7.2.2
     # via -r requirements.in
+requests==2.31.0
+    # via -r requirements.in
 tomli==2.0.1
     # via pytest
+urllib3==2.0.3
+    # via requests
