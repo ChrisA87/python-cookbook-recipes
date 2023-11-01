@@ -25,7 +25,7 @@ def main():
     print('Running withthe decorator as normal:')
     result = add(2, 3)
     print(result)
-    
+
     print('\nunwrapping to run original function:')
     result = add.__wrapped__(2, 3)
     print(result)

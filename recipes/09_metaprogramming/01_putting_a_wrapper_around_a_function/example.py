@@ -55,12 +55,14 @@ def run(func, list_n):
     print(f'function docstring: {func.__doc__}')
     print(f'function annotations: {func.__annotations__}')
 
+
 def main():
     print('Without preserving metadata...')
     run(countdown, [10, 1000, 1000000, 10000000])
 
     print('\nPreserving metadata... (with functools.wraps)')
     run(countdown_v2, [10, 1000, 1000000, 10000000])
+
 
 if __name__ == '__main__':
     main()
