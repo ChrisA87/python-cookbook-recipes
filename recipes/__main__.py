@@ -11,7 +11,7 @@ def parse_args(argv):
     parser.add_argument('--code', help='print the recipe code', action='store_true')
     parser.add_argument('--doc', help='print the recipe docstring', action='store_true')
     parser.add_argument('--create', help='create a new recipe skeleton with the name passed to this arg',
-                        required=False, type=str)
+                        required=False, metavar='name', type=str)
     return parser.parse_args(argv)
 
 
