@@ -53,7 +53,7 @@ class Recipe:
 
     def run(self):
         if self.exists():
-            print('Running... \n')
+            print(f'Running {self.chapter}.{self.number} \n')
             getattr(self.get_module(), 'main')()
             print()
         else:
