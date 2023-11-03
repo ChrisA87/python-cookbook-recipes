@@ -60,7 +60,7 @@ class Recipe:
             print(f'Couldn\'t find {self}')
 
     def render(self):
-        ...
+        """TODO"""
 
     def __repr__(self):
-        return (f"Recipe(chapter={self.chapter}, number={self.number})")
+        return (f"{self.__class__.__name__}(chapter={self.chapter}, number={self.number})")
