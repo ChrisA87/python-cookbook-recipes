@@ -30,7 +30,7 @@ def test_main__recipe_doesnt_exist(capsys):
     out, err = capsys.readouterr()
     assert exc.value.code == 0
     assert err == ''
-    assert 'Recipe not found' in out
+    assert 'Could not find Recipe(chapter=100, number=20)' in out
 
 
 def test_template():
