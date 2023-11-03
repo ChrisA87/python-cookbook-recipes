@@ -1,45 +1,49 @@
 from pathlib import Path
 from importlib import import_module
+from recipes import ROOT
+from recipes.utils import extract_leading_numbers
 
 
 class Recipe:
-    def __init__(self, path: Path):
-        if not str(path).endswith('example.py'):
-            raise ValueError(f'Expects a recipe module "example.py" - got {path}')
-        self.path = path
-        self._package = path.parent.parent.parent.stem
-        self._chapter = path.parent.parent.stem
-        self._example = path.parent.stem
-        self._module = path.stem
+    module = 'example'
+
+    def __init__(self, chapter: int, number: int):
+        self.chapter = chapter
+        self.number = number
+
+    @classmethod
+    def from_recipe_path(cls, path: Path):
+        chapter = extract_leading_numbers(path.parent.parent.stem)
+        number = extract_leading_numbers(path.parent.stem)
+        return cls(chapter, number)
+
+    @property
+    def path(self):
+        result = list(ROOT.glob(f'{self.chapter:0>2}*/{self.number:0>2}*/example.py'))
+        return None if not result else result[0]
 
     @property
     def package(self):
-        return self._package
+        if self.exists():
+            return self.path.parent.parent.parent.stem
 
     @property
-    def chapter(self):
-        return self._clean_text(self._chapter).title()
+    def chapter_name(self):
+        if self.exists():
+            return self.path.parent.parent.stem
 
     @property
-    def example(self):
-        return self._clean_text(self._example)
-
-    @property
-    def module(self):
-        return self._module
-
-    @staticmethod
-    def _clean_text(text):
-        num, text = text.split('_', maxsplit=1)
-        return f"{int(num):>2}) {text.replace('_', ' ').capitalize()}"
+    def name(self):
+        if self.exists():
+            return self.path.parent.stem
 
     def exists(self):
-        return self.path.exists()
+        return self.path is not None
 
     def get_module(self):
         if not self.exists():
             raise ModuleNotFoundError(f'This recipe couldn\'t be found:\n  {self}')
-        return import_module(f"{self._package}.{self._chapter}.{self._example}.{self.module}")
+        return import_module(f"{self.package}.{self.chapter_name}.{self.name}.{self.module}")
 
     def get_docstring(self):
         return self.get_module().__doc__.replace('\n', ' ')
@@ -49,12 +53,14 @@ class Recipe:
 
     def run(self):
         if self.exists():
-            print('Running... \n')
+            print(f'Running {self.chapter}.{self.number} \n')
             getattr(self.get_module(), 'main')()
             print()
         else:
-            print(f'Couldn\'t find recipe {self.example}')
+            print(f'Couldn\'t find {self}')
+
+    def render(self):
+        """TODO"""
 
     def __repr__(self):
-        return (f"{self.chapter}\n"
-                f"  {self.example}")
+        return (f"{self.__class__.__name__}(chapter={self.chapter}, number={self.number})")

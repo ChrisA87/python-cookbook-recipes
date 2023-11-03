@@ -1,7 +1,10 @@
 import sys
 from argparse import ArgumentParser
 from collections import defaultdict
-from recipes import Recipe, ROOT
+from typing import List
+from recipes import ROOT
+from recipes.recipe import Recipe
+from recipes.utils import clean_text
 
 
 def parse_args(argv):
@@ -20,21 +23,21 @@ def get_recipes(chapter=None):
     pattern = '**/example.py' if chapter is None else f'{chapter:0>2}*/**/example.py'
 
     for recipe_path in sorted(ROOT.glob(pattern)):
-        recipe = Recipe(recipe_path)
-        result[recipe.chapter].append(recipe)
+        recipe = Recipe.from_recipe_path(recipe_path)
+        result[recipe.chapter_name].append(recipe)
     return result
 
 
-def render_recipes(recipes):
+def render_recipes(recipes: List[Recipe]):
     if not recipes:
         print('No recipes found')
         return
 
     print(f"{sum(map(len, recipes.values()))} recipes found")
     for chapter, recipes in recipes.items():
-        print(f'\n{chapter}\n{"=" * 50}')
+        print(f'\n{clean_text(chapter).title()}\n{"=" * 50}')
         for recipe in recipes:
-            print(f'  {recipe.example}')
+            print(f'  {clean_text(recipe.name)}')
     print()
 
 
@@ -78,7 +81,12 @@ def main(argv):
     if args.create:
         create_new_recipe(args)
 
-    recipe = Recipe(find_recipe_path(args))
+    recipe = Recipe(args.chapter, args.number)
+
+    if not recipe.exists():
+        print(f'Could not find {recipe}\n')
+        sys.exit(0)
+
     print(f'Found recipe:\n{recipe}\n')
 
     if args.doc:
