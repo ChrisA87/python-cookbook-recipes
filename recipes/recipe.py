@@ -9,7 +9,7 @@ class Recipe:
         self.path = path
         self._package = path.parent.parent.parent.stem
         self._chapter = path.parent.parent.stem
-        self._example = path.parent.stem
+        self._name = path.parent.stem
         self._module = path.stem
 
     @property
@@ -21,8 +21,8 @@ class Recipe:
         return self._clean_text(self._chapter).title()
 
     @property
-    def example(self):
-        return self._clean_text(self._example)
+    def name(self):
+        return self._clean_text(self._name)
 
     @property
     def module(self):
@@ -39,7 +39,7 @@ class Recipe:
     def get_module(self):
         if not self.exists():
             raise ModuleNotFoundError(f'This recipe couldn\'t be found:\n  {self}')
-        return import_module(f"{self._package}.{self._chapter}.{self._example}.{self.module}")
+        return import_module(f"{self._package}.{self._chapter}.{self._name}.{self.module}")
 
     def get_docstring(self):
         return self.get_module().__doc__.replace('\n', ' ')
@@ -53,8 +53,8 @@ class Recipe:
             getattr(self.get_module(), 'main')()
             print()
         else:
-            print(f'Couldn\'t find recipe {self.example}')
+            print(f'Couldn\'t find recipe {self.name}')
 
     def __repr__(self):
         return (f"{self.chapter}\n"
-                f"  {self.example}")
+                f"  {self.name}")

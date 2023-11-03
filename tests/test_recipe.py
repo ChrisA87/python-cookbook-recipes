@@ -10,7 +10,7 @@ def test_recipe__valid__doesnt_exist__recipe_module_instantiates(capsys):
 
     assert recipe.module == 'example'
     assert recipe.chapter == ' 1) Testing Chapter'
-    assert recipe.example == ' 2) Testing example'
+    assert recipe.name == ' 2) Testing example'
     assert recipe.package == ''
     assert 'Couldn\'t find recipe  2) Testing example' in out
     assert err == ''

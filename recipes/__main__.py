@@ -1,6 +1,7 @@
 import sys
 from argparse import ArgumentParser
 from collections import defaultdict
+from typing import List
 from recipes import Recipe, ROOT
 
 
@@ -25,7 +26,7 @@ def get_recipes(chapter=None):
     return result
 
 
-def render_recipes(recipes):
+def render_recipes(recipes: List[Recipe]):
     if not recipes:
         print('No recipes found')
         return
@@ -34,7 +35,7 @@ def render_recipes(recipes):
     for chapter, recipes in recipes.items():
         print(f'\n{chapter}\n{"=" * 50}')
         for recipe in recipes:
-            print(f'  {recipe.example}')
+            print(f'  {recipe.name}')
     print()
 
 
