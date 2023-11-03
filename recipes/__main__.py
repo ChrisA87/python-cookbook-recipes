@@ -4,7 +4,7 @@ from collections import defaultdict
 from typing import List
 from recipes import ROOT
 from recipes.recipe import Recipe
-from .utils import clean_text
+from recipes.utils import clean_text
 
 
 def parse_args(argv):

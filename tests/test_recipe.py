@@ -11,8 +11,8 @@ def test_recipe__valid__doesnt_exist__recipe_module_instantiates(capsys):
     assert recipe.module == 'example'
     assert recipe.chapter == 1
     assert recipe.number == 2
-    assert recipe.name == None
-    assert recipe.package == None
+    assert recipe.name is None
+    assert recipe.package is None
     assert 'Couldn\'t find Recipe' in out
     assert err == ''
     with pytest.raises(ModuleNotFoundError, match='This recipe couldn\'t be found:'):

@@ -1,8 +1,7 @@
-import re
 from pathlib import Path
 from importlib import import_module
 from recipes import ROOT
-from .utils import extract_leading_numbers, clean_text
+from recipes.utils import extract_leading_numbers
 
 
 class Recipe:
@@ -11,7 +10,7 @@ class Recipe:
     def __init__(self, chapter: int, number: int):
         self.chapter = chapter
         self.number = number
-        
+
     @classmethod
     def from_recipe_path(cls, path: Path):
         chapter = extract_leading_numbers(path.parent.parent.stem)
@@ -22,7 +21,7 @@ class Recipe:
     def path(self):
         result = list(ROOT.glob(f'{self.chapter:0>2}*/{self.number:0>2}*/example.py'))
         return None if not result else result[0]
-    
+
     @property
     def package(self):
         if self.exists():
@@ -59,7 +58,7 @@ class Recipe:
             print()
         else:
             print(f'Couldn\'t find {self}')
-            
+
     def render(self):
         ...
 
