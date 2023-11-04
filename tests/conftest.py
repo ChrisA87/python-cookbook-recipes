@@ -11,15 +11,18 @@ def recipe_path(request):
     yield request.param
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def recipe_root_dir(tmp_path_factory):
     """Creates dummy recipe dir with chapters 1, 2, 3 each with 3 example recipes."""
     root_dir = tmp_path_factory.mktemp("recipes")
+    (root_dir / "template.py").write_text(TEMPLATE)
+
     for i in range(1, 4):
-        recipe_dir = root_dir / f"0{i}_test_chapter" / f"0{i}_test_recipe"
-        recipe_dir.mkdir(parents=True, exist_ok=True)
-        (recipe_dir / "example.py").write_text(TEMPLATE)
-        (root_dir / "template.py").write_text(TEMPLATE)
+        chapter_dir = root_dir / f"0{i}_test_chapter"
+        for j in range(1, 4):
+            recipe_dir = chapter_dir / f"0{j}_test_recipe"
+            recipe_dir.mkdir(parents=True, exist_ok=True)
+            (recipe_dir / "example.py").write_text(TEMPLATE)
     yield root_dir
 
 
