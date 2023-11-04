@@ -23,4 +23,4 @@ dynamic = ["version"]
 version = {attr = "pyrecipes.__version__"}
 
 [project.scripts]
-recipes = "pyrecipes.__main__:main"
+recipes = "pyrecipes.cli.main:main"
