@@ -3,13 +3,13 @@
 default: lint test
 
 lint:
-	flake8 recipes tests
+	flake8 pyrecipes tests
 
 test:
 	pytest tests
 
 coverage:
-	coverage run --source recipes -m pytest tests; coverage report
+	coverage run --source pyrecipes -m pytest tests; coverage report
 
 pip-install:
 	pip install pip-tools
