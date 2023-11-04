@@ -15,12 +15,12 @@ class Person:
     @name.setter
     def name(self, value):
         if not isinstance(value, str):
-            raise TypeError('Expected a string.')
+            raise TypeError("Expected a string.")
         self._name = value
 
     @name.deleter
     def name(self):
-        print('Cannot delete attribute.')
+        print("Cannot delete attribute.")
 
 
 class SubPerson(Person):
@@ -31,21 +31,21 @@ class SubPerson(Person):
 
     @name.setter
     def name(self, value):
-        print(f'setting name to {value}')
+        print(f"setting name to {value}")
         super(SubPerson, SubPerson).name.__set__(self, value)
 
     @name.deleter
     def name(self):
-        print('Deleting name.')
+        print("Deleting name.")
         super(SubPerson, SubPerson).name.__delete__(self)
 
 
 def main():
-    sub_person = SubPerson('Chris')
+    sub_person = SubPerson("Chris")
     print(sub_person.name)
-    sub_person.name = 'Bob'
+    sub_person.name = "Bob"
     del sub_person.name
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

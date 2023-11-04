@@ -15,16 +15,16 @@ def find_robots(filename):
     """Find all of the hosts that access robots.txt in a single log file."""
     robots = set()
     with gzip.open(filename) as f:
-        for line in io.TextIOWrapper(f, encoding='ascii'):
+        for line in io.TextIOWrapper(f, encoding="ascii"):
             fields = line.split()
-            if fields[6] == '/robots.txt':
+            if fields[6] == "/robots.txt":
                 robots.add(fields[0])
     return robots
 
 
 def find_all_robots(logdir):
     """Find all hosts across the entire sequence of files."""
-    files = Path(logdir).glob('./*log.gz')
+    files = Path(logdir).glob("./*log.gz")
     all_robots = set()
     for robots in map(find_robots, files):
         all_robots.update(robots)
@@ -33,7 +33,7 @@ def find_all_robots(logdir):
 
 def find_all_robots_parallel(logdir):
     """Find all hosts across the entire sequence of files."""
-    files = Path(logdir).glob('./*log.gz')
+    files = Path(logdir).glob("./*log.gz")
     all_robots = set()
     with futures.ProcessPoolExecutor() as pool:
         for robots in pool.map(find_robots, files):
@@ -43,18 +43,18 @@ def find_all_robots_parallel(logdir):
 
 def example_1():
     start = time.time()
-    robots = find_all_robots(Path(__file__).parent / 'logs')
+    robots = find_all_robots(Path(__file__).parent / "logs")
     for ipaddr in robots:
         print(ipaddr)
-    print(f'Took {time.time() - start}')
+    print(f"Took {time.time() - start}")
 
 
 def example_2():
     start = time.time()
-    robots = find_all_robots_parallel(Path(__file__).parent / 'logs')
+    robots = find_all_robots_parallel(Path(__file__).parent / "logs")
     for ipaddr in robots:
         print(ipaddr)
-    print(f'Took {time.time() - start}')
+    print(f"Took {time.time() - start}")
 
 
 def main():
@@ -63,5 +63,5 @@ def main():
     example_2()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

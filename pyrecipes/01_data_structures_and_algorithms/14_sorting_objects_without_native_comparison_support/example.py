@@ -16,14 +16,14 @@ class User:
 
 def main():
     users = [User(12), User(23), User(2), User(99)]
-    print(f'Users: {users}\n')
+    print(f"Users: {users}\n")
 
-    print('Sorted using lambda:')
-    print(sorted(users, key=lambda u: u.user_id), end='\n\n')
+    print("Sorted using lambda:")
+    print(sorted(users, key=lambda u: u.user_id), end="\n\n")
 
-    print('Sorted using attrgetter:')
-    print(sorted(users, key=attrgetter('user_id')))
+    print("Sorted using attrgetter:")
+    print(sorted(users, key=attrgetter("user_id")))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

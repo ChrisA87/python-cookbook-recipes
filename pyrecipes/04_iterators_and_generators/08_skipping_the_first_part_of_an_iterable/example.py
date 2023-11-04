@@ -8,10 +8,10 @@ from pathlib import Path
 
 
 def main():
-    with open(Path(__file__).parent / 'somefile.txt', 'r') as f:
-        for line in dropwhile(lambda line: line.startswith('#'), f):
-            print(line, end='')
+    with open(Path(__file__).parent / "somefile.txt", "r") as f:
+        for line in dropwhile(lambda line: line.startswith("#"), f):
+            print(line, end="")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

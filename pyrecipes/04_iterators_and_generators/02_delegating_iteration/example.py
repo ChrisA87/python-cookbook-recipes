@@ -11,7 +11,7 @@ class Node:
         self._children = []
 
     def __repr__(self):
-        return f'Node({self.value})'
+        return f"Node({self.value})"
 
     def add_child(self, node):
         self._children.append(node)
@@ -27,11 +27,11 @@ def main():
     root.add_child(child1)
     root.add_child(child2)
 
-    print(f'root node: {root}')
+    print(f"root node: {root}")
 
     for i, child in enumerate(root, 1):
-        print(f'Child {i}: {child}')
+        print(f"Child {i}: {child}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

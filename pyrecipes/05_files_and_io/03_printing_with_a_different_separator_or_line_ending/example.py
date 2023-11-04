@@ -5,12 +5,12 @@ character or line ending.
 
 
 def main():
-    print('ACME', 50, 91.5)
-    print('ACME', 50, 91.5, sep=',')
-    print('ACME', 50, 91.5, sep=',', end='!!\n')
+    print("ACME", 50, 91.5)
+    print("ACME", 50, 91.5, sep=",")
+    print("ACME", 50, 91.5, sep=",", end="!!\n")
     for i in range(5):
-        print(i, end=' ')
+        print(i, end=" ")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

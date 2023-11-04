@@ -3,20 +3,19 @@ You want to create a pool of worker threads for serving clients or
 performing other kinds of work.
 """
 
-
 from socket import AF_INET, SOCK_STREAM, socket
 from concurrent.futures import ThreadPoolExecutor
 
 
 def echo_client(sock, client_addr):
     """Handle a client connection"""
-    print(f'Got connection from {client_addr}')
+    print(f"Got connection from {client_addr}")
     while True:
         msg = sock.recv(65536)
         if not msg:
             break
         sock.sendall(msg)
-    print('Client closed connection')
+    print("Client closed connection")
     sock.close()
 
 
@@ -35,5 +34,5 @@ def main():
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

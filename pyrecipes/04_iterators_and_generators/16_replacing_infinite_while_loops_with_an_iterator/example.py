@@ -31,10 +31,10 @@ def main():
         for chunk in iter(lambda: s.recv(CHUNKSIZE, b'')):
             process_data(chunk)
     """
-    with open(Path(__file__).parent / 'access-log', 'r') as f:
-        for chunk in iter(lambda: f.read(10), ''):
+    with open(Path(__file__).parent / "access-log", "r") as f:
+        for chunk in iter(lambda: f.read(10), ""):
             sys.stdout.write(chunk)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -35,19 +35,24 @@ class Item:
 
 
 def main():
-    print('instantiating queue')
+    print("instantiating queue")
     q = PriorityQueue()
     print(q)
-    items = [(Item('fourth'), 1), (Item('first'), 5), (Item('third'), 2), (Item('second'), 4)]
+    items = [
+        (Item("fourth"), 1),
+        (Item("first"), 5),
+        (Item("third"), 2),
+        (Item("second"), 4),
+    ]
     for item, priority in items:
-        print(f'Adding item {item} with priority {priority}')
+        print(f"Adding item {item} with priority {priority}")
         q.push(item, priority)
     print(q)
-    print('\npopping items in order of priority:')
+    print("\npopping items in order of priority:")
     for i in range(q.size):
         item = q.pop()
-        print(f'Popped {item}')
+        print(f"Popped {item}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

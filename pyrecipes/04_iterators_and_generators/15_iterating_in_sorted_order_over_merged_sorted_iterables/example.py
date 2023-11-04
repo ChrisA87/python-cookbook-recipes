@@ -11,13 +11,13 @@ def main():
     b = [2, 5, 6, 11]
     c = [17, 23, 43, 86]
 
-    print(f'a: {a}')
-    print(f'b: {b}')
-    print(f'c: {c}')
-    print('merging and iterating into single sorted output:')
+    print(f"a: {a}")
+    print(f"b: {b}")
+    print(f"c: {c}")
+    print("merging and iterating into single sorted output:")
     for x in heapq.merge(a, b, c):
         print(x)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -10,7 +10,7 @@ class Node:
         self._children = []
 
     def __repr__(self):
-        return f'Node({self.value})'
+        return f"Node({self.value})"
 
     def add_child(self, node):
         self._children.append(node)
@@ -43,5 +43,5 @@ def main():
     print(list(iter(root)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -5,7 +5,7 @@ from pyrecipes.utils import extract_leading_numbers
 
 
 class Recipe:
-    module = 'example'
+    module = "example"
 
     def __init__(self, chapter: int, number: int):
         self.chapter = chapter
@@ -19,7 +19,7 @@ class Recipe:
 
     @property
     def path(self):
-        result = list(ROOT.glob(f'{self.chapter:0>2}*/{self.number:0>2}*/example.py'))
+        result = list(ROOT.glob(f"{self.chapter:0>2}*/{self.number:0>2}*/example.py"))
         return None if not result else result[0]
 
     @property
@@ -42,25 +42,29 @@ class Recipe:
 
     def get_module(self):
         if not self.exists():
-            raise ModuleNotFoundError(f'This recipe couldn\'t be found:\n  {self}')
-        return import_module(f"{self.package}.{self.chapter_name}.{self.name}.{self.module}")
+            raise ModuleNotFoundError(f"This recipe couldn't be found:\n  {self}")
+        return import_module(
+            f"{self.package}.{self.chapter_name}.{self.name}.{self.module}"
+        )
 
     def get_docstring(self):
-        return self.get_module().__doc__.replace('\n', ' ')
+        return self.get_module().__doc__.replace("\n", " ")
 
     def get_code(self):
         return self.path.read_text()
 
     def run(self):
         if self.exists():
-            print(f'Running {self.chapter}.{self.number} \n')
-            getattr(self.get_module(), 'main')()
+            print(f"Running {self.chapter}.{self.number} \n")
+            getattr(self.get_module(), "main")()
             print()
         else:
-            print(f'Couldn\'t find {self}')
+            print(f"Couldn't find {self}")
 
     def render(self):
         """TODO"""
 
     def __repr__(self):
-        return (f"{self.__class__.__name__}(chapter={self.chapter}, number={self.number})")
+        return (
+            f"{self.__class__.__name__}(chapter={self.chapter}, number={self.number})"
+        )

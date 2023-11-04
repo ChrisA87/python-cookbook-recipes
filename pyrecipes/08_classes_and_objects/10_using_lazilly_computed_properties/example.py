@@ -4,7 +4,6 @@ computed on access. However, once accessed, you'd like the value to be
 cached and not recomputed each access.
 """
 
-
 import math
 
 
@@ -27,12 +26,12 @@ class Circle:
 
     @lazyproperty
     def area(self):
-        print('Computing area...')
-        return math.pi * self.radius ** 2
+        print("Computing area...")
+        return math.pi * self.radius**2
 
     @lazyproperty
     def perimeter(self):
-        print('Calculating perimeter...')
+        print("Calculating perimeter...")
         return 2 * math.pi * self.radius
 
 
@@ -49,5 +48,5 @@ def main():
     print(vars(c))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -6,8 +6,8 @@ but are concerned about Python's lack of access control.
 
 class A:
     def __init__(self):
-        self._internal = 0   # An internal attribute
-        self.public = 1      # A public attribute
+        self._internal = 0  # An internal attribute
+        self.public = 1  # A public attribute
 
     def public_method(self):
         """A public method"""
@@ -26,5 +26,5 @@ def main():
     a.public_method()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

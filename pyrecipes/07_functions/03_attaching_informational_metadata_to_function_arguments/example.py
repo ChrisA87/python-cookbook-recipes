@@ -15,11 +15,11 @@ def add(x: int, y: int):
 def main():
     x = 2
     y = 3
-    print(f'x: {x}, y: {y}')
+    print(f"x: {x}, y: {y}")
     print(pydoc.render_doc(add))
     print(add(x, y))
     print(add.__annotations__)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

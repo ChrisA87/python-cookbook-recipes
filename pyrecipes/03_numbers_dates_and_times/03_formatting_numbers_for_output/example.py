@@ -12,26 +12,26 @@ def main():
     """
     x = 1234.56789
 
-    print('Two decimal places of accuracy:')
-    print(format(x, '0.2f'))
+    print("Two decimal places of accuracy:")
+    print(format(x, "0.2f"))
 
-    print('\nRight justified in 10-chars, one-digit accuracy:')
-    print(format(x, '>10.1f'))
+    print("\nRight justified in 10-chars, one-digit accuracy:")
+    print(format(x, ">10.1f"))
 
-    print('\nLeft justified')
-    print(format(x, '<10.1f'))
+    print("\nLeft justified")
+    print(format(x, "<10.1f"))
 
-    print('\nCentered')
-    print(format(x, '^10.1f'))
+    print("\nCentered")
+    print(format(x, "^10.1f"))
 
-    print('\nInclusion of thousand separator:')
-    print(format(x, ','))
-    print(format(x, '0,.1f'))
+    print("\nInclusion of thousand separator:")
+    print(format(x, ","))
+    print(format(x, "0,.1f"))
 
-    print('\nExponential notation:')
-    print(format(x, 'e'))
-    print(format(x, '0.2E'))
+    print("\nExponential notation:")
+    print(format(x, "e"))
+    print(format(x, "0.2E"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

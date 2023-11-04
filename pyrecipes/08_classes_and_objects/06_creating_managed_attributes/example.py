@@ -17,7 +17,7 @@ class Person:
     @first_name.setter
     def first_name(self, value):
         if not isinstance(value, str):
-            raise TypeError('Expected a string.')
+            raise TypeError("Expected a string.")
         self._first_name = value
 
     @first_name.deleter
@@ -31,7 +31,7 @@ class Circle:
 
     @property
     def area(self):
-        return math.pi * self.radius ** 2
+        return math.pi * self.radius**2
 
     @property
     def circumference(self):
@@ -39,7 +39,7 @@ class Circle:
 
 
 def example_1():
-    person = Person('Chris')
+    person = Person("Chris")
     print(person.first_name)
 
     try:
@@ -47,7 +47,7 @@ def example_1():
     except TypeError as exc:
         print(exc)
 
-    person.first_name = 'Bob'
+    person.first_name = "Bob"
     print(person.first_name)
 
     try:
@@ -68,5 +68,5 @@ def main():
     example_2()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

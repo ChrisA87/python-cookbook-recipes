@@ -14,17 +14,17 @@ def flatten(items, ignore_types=(str, bytes)):
 
 def main():
     items = [1, 2, [3, 4, [5, 6], 7], 8]
-    print(f'Items: {items}')
-    print(f'flattened: {list(flatten(items))}')
+    print(f"Items: {items}")
+    print(f"flattened: {list(flatten(items))}")
 
-    print('\niterating over items')
+    print("\niterating over items")
     for x in items:
         print(x)
 
-    print('\niterating over flattened items')
+    print("\niterating over flattened items")
     for x in flatten(items):
         print(x)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

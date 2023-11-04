@@ -22,14 +22,16 @@ class LineHistory:
 
 
 def main():
-    with open(Path(__file__).parent / 'somefile.txt', 'r') as f:
+    with open(Path(__file__).parent / "somefile.txt", "r") as f:
         lines = LineHistory(f)
         for line in lines:
-            if 'python' in line:
-                print(f'found python in line "{line}" - here is the current history state.')
+            if "python" in line:
+                print(
+                    f'found python in line "{line}" - here is the current history state.'
+                )
                 for line_num, history_line in lines.history:
-                    print(f'{line_num}:{history_line}', end='')
+                    print(f"{line_num}:{history_line}", end="")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

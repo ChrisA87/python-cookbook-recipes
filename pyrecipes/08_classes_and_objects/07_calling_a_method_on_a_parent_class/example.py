@@ -6,12 +6,12 @@ that has been overridden in a subclass.
 
 class A:
     def spam(self):
-        print('A.spam')
+        print("A.spam")
 
 
 class B(A):
     def spam(self):
-        print('B.spam')
+        print("B.spam")
         super().spam()
 
 
@@ -46,5 +46,5 @@ def main():
     example_2()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -3,7 +3,6 @@ You want to optionally enforce type checking of function arguments
 as a kind of assertion or contract.
 """
 
-
 from inspect import signature
 from functools import wraps
 
@@ -26,11 +25,11 @@ def typeassert(*ty_args, **ty_kwargs):
             for name, value in bound_values.arguments.items():
                 if name in bound_types:
                     if not isinstance(value, bound_types[name]):
-                        raise TypeError(
-                            f'Argument {name} must be {bound_types[name]}'
-                        )
+                        raise TypeError(f"Argument {name} must be {bound_types[name]}")
             return func(*args, **kwargs)
+
         return wrapper
+
     return decorate
 
 
@@ -48,11 +47,11 @@ def main():
     print(add(1, 2))
 
     try:
-        print(add(1, 'a'))
+        print(add(1, "a"))
     except TypeError as exc:
         print(f"Caught error: {exc}")
 
-    print(spam(3, 2, 'Chris'))
+    print(spam(3, 2, "Chris"))
 
     try:
         print(spam(3, 2, 9.0))
@@ -60,5 +59,5 @@ def main():
         print(f"Caught error: {exc}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

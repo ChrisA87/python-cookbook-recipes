@@ -8,8 +8,8 @@ import io
 
 def main():
     s = io.StringIO()
-    s.write('Hello world\n')
-    print('this is a test', file=s)
+    s.write("Hello world\n")
+    print("this is a test", file=s)
     print(s.getvalue())
 
     s.seek(0)
@@ -17,5 +17,5 @@ def main():
     print(s.read())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

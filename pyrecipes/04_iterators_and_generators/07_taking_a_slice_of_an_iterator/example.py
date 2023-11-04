@@ -13,13 +13,13 @@ def count(n):
 
 
 def main():
-    print('Printing a slice of a generator function, 10-20')
+    print("Printing a slice of a generator function, 10-20")
     for x in islice(count(0), 10, 20):
         print(x)
 
-    print('list slice from generator function')
+    print("list slice from generator function")
     print(list(islice(count(0), 4, 12)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

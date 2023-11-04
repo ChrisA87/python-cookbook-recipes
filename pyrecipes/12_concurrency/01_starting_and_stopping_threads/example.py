@@ -15,14 +15,14 @@ class CountdownTask:
 
     def run(self, n):
         while self._running and n > 0:
-            print('T-minus', n)
+            print("T-minus", n)
             n -= 1
             time.sleep(1)
 
 
 def countdown(n):
     while n > 0:
-        print('T-minus', n)
+        print("T-minus", n)
         n -= 1
         time.sleep(1)
 
@@ -32,14 +32,14 @@ def main():
     print(t)
     t.start()
     if t.is_alive():
-        print('t is still running')
+        print("t is still running")
     else:
-        print('t is finished')
+        print("t is finished")
 
     c = CountdownTask()
     t2 = Thread(target=c.run, args=(10,), daemon=True)
     t2.start()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

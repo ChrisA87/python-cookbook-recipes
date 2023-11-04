@@ -7,14 +7,14 @@ from pathlib import Path
 
 
 def main():
-    with open(Path(__file__).parent / 'somefile.txt', 'r') as f:
+    with open(Path(__file__).parent / "somefile.txt", "r") as f:
         try:
             while True:
                 line = next(f)
-                print(line.rstrip('\n'), end='')
+                print(line.rstrip("\n"), end="")
         except StopIteration:
             pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

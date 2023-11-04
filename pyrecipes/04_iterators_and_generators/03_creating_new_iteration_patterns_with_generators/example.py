@@ -18,20 +18,20 @@ def countdown(n):
 
 
 def main():
-    print('For loop - starting at 0, ending at 4 and incrementing by 0.5')
+    print("For loop - starting at 0, ending at 4 and incrementing by 0.5")
     for x in frange(0, 4, 0.5):
         print(x)
 
-    print('\nList of valuee between 0 and 1 with a 0.125 increment')
+    print("\nList of valuee between 0 and 1 with a 0.125 increment")
     print(list(frange(0, 1, 0.125)))
 
-    print('\nCounting down from 5')
+    print("\nCounting down from 5")
     for x in countdown(5):
         print(x)
-    print('Done!\n')
+    print("Done!\n")
 
-    print(f'list of values from the countdown: {list(countdown(5))}')
+    print(f"list of values from the countdown: {list(countdown(5))}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

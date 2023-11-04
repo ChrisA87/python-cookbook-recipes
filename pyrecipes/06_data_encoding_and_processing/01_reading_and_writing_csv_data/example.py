@@ -8,20 +8,20 @@ from collections import namedtuple
 
 
 def example_1():
-    with open(Path(__file__).parent / 'stocks.csv', 'r') as f:
+    with open(Path(__file__).parent / "stocks.csv", "r") as f:
         f_csv = csv.reader(f)
         print(f_csv)
         headers = next(f_csv)
-        print(f'Header: {headers}')
+        print(f"Header: {headers}")
         for i, row in enumerate(f_csv, 1):
-            print(f'[{i:^3}] - {row}')
+            print(f"[{i:^3}] - {row}")
 
 
 def example_2():
-    with open(Path(__file__).parent / 'stocks.csv', 'r') as f:
+    with open(Path(__file__).parent / "stocks.csv", "r") as f:
         f_csv = csv.reader(f)
         headers = next(f_csv)
-        Row = namedtuple('Row', headers)
+        Row = namedtuple("Row", headers)
         print(headers)
         for r in f_csv:
             row = Row(*r)
@@ -29,7 +29,7 @@ def example_2():
 
 
 def example_3():
-    with open(Path(__file__).parent / 'stocks.csv', 'r') as f:
+    with open(Path(__file__).parent / "stocks.csv", "r") as f:
         f_csv = csv.DictReader(f)
         for r in f_csv:
             print(r)
@@ -41,5 +41,5 @@ def main():
     example_3()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

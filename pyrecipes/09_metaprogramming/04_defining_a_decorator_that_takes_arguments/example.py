@@ -12,6 +12,7 @@ def logged(level, name=None, message=None):
     If name and message aren't specified, they default to
     the function's module and name.
     """
+
     def decorate(func):
         logname = name if name else func.__module__
         log = logging.getLogger(logname)
@@ -21,7 +22,9 @@ def logged(level, name=None, message=None):
         def wrapper(*args, **kwargs):
             log.log(level, logmsg)
             return func(*args, **kwargs)
+
         return wrapper
+
     return decorate
 
 
@@ -30,18 +33,20 @@ def add(a, b):
     return a + b
 
 
-@logged(logging.CRITICAL, message='example message')
+@logged(logging.CRITICAL, message="example message")
 def spam():
-    print('this is spam')
+    print("this is spam")
 
 
 def main():
-    print('Example 1: @logged(logging.INFO)')
+    print("Example 1: @logged(logging.INFO)")
     add(1, 2)
 
-    print("\nExample 2: @logged(logging.CRITICAL, name='SPAM!', message='example message')")
+    print(
+        "\nExample 2: @logged(logging.CRITICAL, name='SPAM!', message='example message')"
+    )
     spam()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

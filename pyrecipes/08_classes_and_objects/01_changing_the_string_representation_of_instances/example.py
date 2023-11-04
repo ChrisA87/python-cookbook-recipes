@@ -13,7 +13,7 @@ class Pair:
         return "Pair({0.x!r}, {0.y!r})".format(self)
 
     def __str__(self):
-        return '({0.x!s}, {0.y!s})'.format(self)
+        return "({0.x!s}, {0.y!s})".format(self)
 
 
 def main():
@@ -22,5 +22,5 @@ def main():
     print(p.__repr__())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

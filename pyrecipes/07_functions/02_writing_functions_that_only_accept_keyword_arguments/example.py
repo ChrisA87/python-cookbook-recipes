@@ -5,7 +5,7 @@ You want a function to only accept certain arguments by keyword.
 
 def recv(maxsize, *, block):
     """Receives message"""
-    print(f'maxsize: {maxsize}, block: {block}')
+    print(f"maxsize: {maxsize}, block: {block}")
 
 
 def minimum(*values, clip=None):
@@ -21,15 +21,15 @@ def example_1():
         recv(1024, True)
     except TypeError:
         recv(1024, block=True)
-    print('=' * 20)
+    print("=" * 20)
 
 
 def example_2():
     a = [1, 5, 2, -5, 10]
 
-    print('a:', a)
-    print('minimum (no clip):', minimum(*a))
-    print('minimum (clip=0):', minimum(*a, clip=0))
+    print("a:", a)
+    print("minimum (no clip):", minimum(*a))
+    print("minimum (clip=0):", minimum(*a, clip=0))
 
 
 def main():
@@ -37,5 +37,5 @@ def main():
     example_2()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

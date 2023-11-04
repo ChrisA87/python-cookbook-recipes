@@ -4,7 +4,6 @@ getting tired of writing highly repetitive and boilerplate __init__()
 functions.
 """
 
-
 import math
 
 
@@ -15,7 +14,7 @@ class Structure:
     def __init__(self, *args, **kwargs):
         n = len(self._fields)
         if len(args) != n:
-            raise TypeError(f'Expected {n} fields')
+            raise TypeError(f"Expected {n} fields")
 
         # Set required arguments
         for name, value in zip(self._fields, args):
@@ -30,24 +29,24 @@ class Structure:
 
 
 class Stock(Structure):
-    _fields = ['name', 'shares', 'price']
+    _fields = ["name", "shares", "price"]
 
 
 class Point(Structure):
-    _fields = ['x', 'y']
+    _fields = ["x", "y"]
 
 
 class Circle(Structure):
-    _fields = ['radius']
+    _fields = ["radius"]
 
     @property
     def area(self):
-        return math.pi * self.radius ** 2
+        return math.pi * self.radius**2
 
 
 def main():
-    s1 = Stock('AAPL', 10, 100)
-    s2 = Stock('MSFT', 10, 95, date='2023-01-01')
+    s1 = Stock("AAPL", 10, 100)
+    s2 = Stock("MSFT", 10, 95, date="2023-01-01")
     c = Circle(4.0)
     print(s1.name)
     print(s1.price)
@@ -56,5 +55,5 @@ def main():
     print(c.area)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -6,6 +6,7 @@ extra functionality in the form of a descriptor class.
 
 class Integer:
     """Descriptor attribute for an integer type-checked attribute"""
+
     def __init__(self, name):
         self.name = name
 
@@ -17,7 +18,7 @@ class Integer:
 
     def __set__(self, instance, value):
         if not isinstance(value, int):
-            print('Expected an int')
+            print("Expected an int")
         else:
             instance.__dict__[self.name] = value
 
@@ -26,8 +27,8 @@ class Integer:
 
 
 class Point:
-    x = Integer('x')
-    y = Integer('y')
+    x = Integer("x")
+    y = Integer("y")
 
     def __init__(self, x, y):
         self.x = x
@@ -44,5 +45,5 @@ def main():
     del p.x
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

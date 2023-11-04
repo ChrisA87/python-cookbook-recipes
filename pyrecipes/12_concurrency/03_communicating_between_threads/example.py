@@ -3,13 +3,11 @@ You have multiple threads in your program and you want
 to safely communicate or exchange data between them.
 """
 
-
 import random
 import threading
 import heapq
 from queue import Queue
 from threading import Thread
-
 
 _sentinel = object()
 
@@ -21,9 +19,9 @@ def producer(out_q):
         # Produce some data ...
         data = random.randint(1, 100)
         out_q.put(data)
-        print(f'produced: {data}')
+        print(f"produced: {data}")
         if data >= 95:
-            print('Stopping.')
+            print("Stopping.")
             out_q.put(_sentinel)
             break
 
@@ -36,11 +34,11 @@ def consumer(in_q):
 
         if data is _sentinel:
             in_q.put(_sentinel)
-            print('Stopping')
+            print("Stopping")
             break
 
         # Do some processing...
-        print(f'consumed: {data}')
+        print(f"consumed: {data}")
 
 
 class ThreadSafePriorityQueue:
@@ -74,5 +72,5 @@ def main():
     example_1()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -8,10 +8,10 @@ from threading import Thread, Event
 
 
 def countdown(n, started_event):
-    print('countdown started')
+    print("countdown started")
     started_event.set()
     while n > 0:
-        print(f'T-minus {n}')
+        print(f"T-minus {n}")
         n -= 1
         time.sleep(1)
 
@@ -21,13 +21,13 @@ def example_1():
     started_event = Event()
 
     # Launch the thread and pass the startup event
-    print('Laumching countdown')
+    print("Laumching countdown")
     t = Thread(target=countdown, args=(10, started_event), daemon=True)
     t.start()
 
     # Wait for the thread to start
     started_event.wait()
-    print('Countdown is running')
+    print("Countdown is running")
 
 
 def example_2():  # pragma: no cover
@@ -42,9 +42,9 @@ def example_2():  # pragma: no cover
             t.start()
 
         def run(self):
-            '''
+            """
             Run the timer and notify waiting threads after each interval
-            '''
+            """
             while True:
                 time.sleep(self._interval)
                 with self._cv:
@@ -52,9 +52,9 @@ def example_2():  # pragma: no cover
                     self._cv.notify_all()
 
         def wait_for_tick(self):
-            '''
+            """
             Wait for the next tick of the timer
-            '''
+            """
             with self._cv:
                 last_flag = self._flag
                 while last_flag == self._flag:
@@ -87,5 +87,5 @@ def main():
     # example_2()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
