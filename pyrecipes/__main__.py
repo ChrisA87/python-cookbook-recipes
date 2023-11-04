@@ -77,8 +77,8 @@ def create_new_recipe(args):
     sys.exit(0)
 
 
-def main(argv):
-    args = parse_args(argv)
+def main():
+    args = parse_args(sys.argv[1:])
 
     if args.chapter is None or args.number is None:
         render_recipes(get_recipes(args.chapter))
@@ -108,4 +108,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
