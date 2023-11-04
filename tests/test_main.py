@@ -1,6 +1,6 @@
 import pytest
-from recipes import __main__ as main
-from recipes import template
+from pyrecipes import __main__ as main
+from pyrecipes import template
 from tests.conftest import TEMPLATE
 
 

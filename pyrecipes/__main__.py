@@ -2,9 +2,9 @@ import sys
 from argparse import ArgumentParser
 from collections import defaultdict
 from typing import List
-from recipes import ROOT
-from recipes.recipe import Recipe
-from recipes.utils import clean_text
+from pyrecipes import ROOT
+from pyrecipes.recipe import Recipe
+from pyrecipes.utils import clean_text
 
 
 def parse_args(argv):

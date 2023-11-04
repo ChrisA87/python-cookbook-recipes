@@ -1,7 +1,7 @@
 from pathlib import Path
 from importlib import import_module
-from recipes import ROOT
-from recipes.utils import extract_leading_numbers
+from pyrecipes import ROOT
+from pyrecipes.utils import extract_leading_numbers
 
 
 class Recipe:

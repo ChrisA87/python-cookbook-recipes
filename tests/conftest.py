@@ -1,5 +1,5 @@
 import pytest
-from recipes import ROOT, __main__
+from pyrecipes import ROOT, __main__
 
 
 TEMPLATE = (ROOT / 'template.py').read_text()

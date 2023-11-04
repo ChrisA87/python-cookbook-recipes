@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from recipes.recipe import Recipe
+from pyrecipes.recipe import Recipe
 
 
 def test_recipe__valid__doesnt_exist__recipe_module_instantiates(capsys):
