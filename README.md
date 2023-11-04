@@ -9,19 +9,9 @@ This project implements a simple CLI tool to list, run and view recipes.
 ## Setup
 
 1. Consider creating and activating a new [virtual environment](https://virtualenv.pypa.io/en/latest/)
-2. Update `PYTHONPATH`
-    ```
-    export PYTHONPATH=.:$PYTHONPATH
-    ```
-3. Install dependencies
-    ```
-    pip install pip-tools
-    make pip-install
-    ```
-4. Check setup by running tests
-    ```
-    make test
-    ```
+2. Clone this repo
+3. cd into the project root and run `pip install .`
+4. Run `recipes` to confirm successful install 
 
 ---
 
@@ -29,34 +19,34 @@ This project implements a simple CLI tool to list, run and view recipes.
 
 ### List all recipes
 ```
-python recipes
+recipes
 ```
 
 ### List all recipes in chapter 1
 ```
-python recipes 1
+recipes 1
 ```
 
 ### Run specific recipe
 To run the recipe code for chapter 1, example 5:
 ```
-python recipes 1 5
+recipes 1 5
 ```
 
 ### Print recipe code
 ```
-python recipes 1 5 --code
+recipes 1 5 --code
 ```
 
 ### Print the recipe docstring
 ```
-python recipes 1 5 --doc
+recipes 1 5 --doc
 ```
 
 ### Create new recipe skeleton
 To create recipe 23 under chapter 1:
 ```
-python recipes 1 23 --create "the name of the new recipe"
+recipes 1 23 --create "the name of the new recipe"
 ```
 
 ---
