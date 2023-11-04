@@ -1,12 +1,14 @@
 import pytest
+import sys
 from pyrecipes import __main__ as main
 from pyrecipes import template
 from tests.conftest import TEMPLATE
 
 
-def test_main_with_no_args_lists_recipes(capsys):
+def test_main_with_no_args_lists_recipes(capsys, monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["python"])
     with pytest.raises(SystemExit) as exc:
-        main.main([])
+        main.main()
     out, err = capsys.readouterr()
     assert exc.value.code == 0
     assert err == ""
@@ -17,18 +19,20 @@ def test_main_with_no_args_lists_recipes(capsys):
 @pytest.mark.parametrize(
     "argv", [["1", "5"], ["1", "5", "--code"], ["1", "5", "--doc"]]
 )
-def test_main__recipe_exists(argv, capsys):
+def test_main__recipe_exists(argv, capsys, monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["python"] + argv)
     with pytest.raises(SystemExit) as exc:
-        main.main(argv)
+        main.main()
     out, err = capsys.readouterr()
     assert exc.value.code == 0
     assert err == ""
     assert "Found recipe:" in out
 
 
-def test_main__recipe_doesnt_exist(capsys):
+def test_main__recipe_doesnt_exist(capsys, monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["python", "100", "20"])
     with pytest.raises(SystemExit) as exc:
-        main.main(["100", "20"])
+        main.main()
     out, err = capsys.readouterr()
     assert exc.value.code == 0
     assert err == ""
@@ -39,9 +43,14 @@ def test_template():
     assert template.main() is None
 
 
-def test_recipes__create__generates_template(recipe_root_dir, capsys, patched_root):
+def test_recipes__create__generates_template(
+    recipe_root_dir, capsys, patched_root, monkeypatch
+):
+    monkeypatch.setattr(
+        sys, "argv", ["python", "1", "2", "--create", "new test recipe"]
+    )
     with pytest.raises(SystemExit) as exc:
-        main.main(["1", "2", "--create", "new test recipe"])
+        main.main()
     out, err = capsys.readouterr()
     expected_output_path = (
         recipe_root_dir / "01_test_chapter" / "02_new_test_recipe" / "example.py"
