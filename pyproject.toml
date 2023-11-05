@@ -2,6 +2,7 @@
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
+
 [project]
 name = "pyrecipes"
 authors = [
@@ -19,8 +20,27 @@ dependencies = [
 ]
 dynamic = ["version"]
 
+
 [tool.setuptools.dynamic]
 version = {attr = "pyrecipes.__version__"}
 
+
 [project.scripts]
 recipes = "pyrecipes.cli.main:main"
+
+
+[tool.coverage.run]
+omit = [
+    "pyrecipes/template.py",
+    "**/__init__.py",
+    ]
+
+
+[tool.coverage.report]
+exclude_also = [
+    "if __name__ == .__main__.:"
+    ]
+
+
+[tool.coverage.html]
+directory = "htmlcov"
