@@ -20,8 +20,8 @@ class Chapter:
 
     def _collect(self):
         """Collects recipes"""
-        for recipe_dir in self.chapter_dir.glob("[0-9]*"):
-            recipe = Recipe.from_recipe_path(recipe_dir)
+        for recipe_dir in sorted(self.chapter_dir.glob("[0-9]*")):
+            recipe = Recipe(recipe_dir)
             self.recipes[recipe.number] = recipe
 
     def __getitem__(self, key):
