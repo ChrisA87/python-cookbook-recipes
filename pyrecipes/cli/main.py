@@ -14,5 +14,3 @@ main.add_command(ls)
 main.add_command(run)
 main.add_command(chapters)
 main.add_command(show)
-# TODO
-# main.add_command(search_group)

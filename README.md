@@ -52,12 +52,6 @@ recipes show 1 3
 recipes run 1 3
 ```
 
-### Create new recipe skeleton
-To create recipe 23 under chapter 1:
-```
-recipes create 1 23 "the name of the new recipe"
-```
-
 ---
 
 ## Chapters
