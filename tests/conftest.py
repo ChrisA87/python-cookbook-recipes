@@ -1,12 +1,12 @@
 import pytest
-from pyrecipes import RECIPES_DIR, TEMPLATE_PATH
+from pyrecipes import COOKBOOK_DIR, TEMPLATE_PATH
 import pyrecipes
 
 
 TEMPLATE = TEMPLATE_PATH.read_text()
 
 
-@pytest.fixture(params=list(RECIPES_DIR.glob("**/example.py")))
+@pytest.fixture(params=list(COOKBOOK_DIR.glob("**/example.py")))
 def recipe_path(request):
     """Iters over every recipe."""
     yield request.param
