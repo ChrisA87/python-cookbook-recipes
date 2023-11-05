@@ -1,7 +1,7 @@
 import click
 from .ls import ls
 from .chapters import chapters
-from .get import get_group
+from .show import get_group
 from .search import search_group
 from .run import run_group
 
