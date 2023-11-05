@@ -30,6 +30,10 @@ recipes = "pyrecipes.cli.main:main"
 
 
 [tool.coverage.run]
+command_line = "-m pytest tests"
+source = [
+    "pyrecipes"
+    ]
 omit = [
     "pyrecipes/template.py",
     "**/__init__.py",
