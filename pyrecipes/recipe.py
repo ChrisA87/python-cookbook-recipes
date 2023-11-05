@@ -1,6 +1,6 @@
 from pathlib import Path
 from importlib import import_module
-from pyrecipes import RECIPES_DIR
+from pyrecipes import COOKBOOK_DIR
 from pyrecipes.utils import extract_leading_numbers
 
 
@@ -20,7 +20,7 @@ class Recipe:
     @property
     def path(self):
         result = list(
-            RECIPES_DIR.glob(f"{self.chapter:0>2}*/{self.number:0>2}*/example.py")
+            COOKBOOK_DIR.glob(f"{self.chapter:0>2}*/{self.number:0>2}*/example.py")
         )
         return None if not result else result[0]
 
