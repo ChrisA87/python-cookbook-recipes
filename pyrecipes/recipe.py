@@ -1,5 +1,6 @@
 from pathlib import Path
 from importlib import import_module
+import re
 
 from pyrecipes.utils import clean_text, extract_leading_numbers
 
@@ -59,8 +60,14 @@ class Recipe:
         else:
             print(f"Couldn't find Recipe {self.name}")
 
-    def render(self):
-        """TODO"""
+    def search(self, pattern):
+        results = []
+
+        with self.path.open() as file:
+            for i, line in enumerate(file, start=1):
+                if re.findall(re.compile(pattern), line):
+                    results.append((i, line, self.chapter, self.number))
+        return results
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.path})"
