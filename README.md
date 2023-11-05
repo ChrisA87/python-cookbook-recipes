@@ -52,6 +52,11 @@ recipes show 1 3
 recipes run 1 3
 ```
 
+### Search for recipes containing a pattern
+```
+recipes search 'islice'
+recipes search 'islice' --color green
+```
 ---
 
 ## Chapters
