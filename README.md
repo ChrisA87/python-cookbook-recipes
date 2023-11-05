@@ -15,38 +15,41 @@ This project implements a simple CLI tool to list, run and view recipes.
 
 ---
 
-## Usage
+## Example Usage
 
-### List all recipes
+### Show recipes help and subcommands
 ```
 recipes
 ```
 
-### List all recipes in chapter 1
+### List all chapters
 ```
-recipes 1
-```
-
-### Run specific recipe
-To run the recipe code for chapter 1, example 5:
-```
-recipes 1 5
+recipes chapters
 ```
 
-### Print recipe code
+### List all recipes
 ```
-recipes 1 5 --code
-```
-
-### Print the recipe docstring
-```
-recipes 1 5 --doc
+recipes ls
 ```
 
-### Create new recipe skeleton
-To create recipe 23 under chapter 1:
+### List all recipes in a specific chapter
 ```
-recipes 1 23 --create "the name of the new recipe"
+recipes ls -c 1
+```
+
+### List all recipes in a specific chapter with a short description
+```
+recipes ls -c 1 -d
+```
+
+### Show recipe code
+```
+recipes show 1 3
+```
+
+### Run the recipe as a script
+```
+recipes run 1 3
 ```
 
 ---

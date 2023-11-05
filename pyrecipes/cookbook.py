@@ -1,35 +1,30 @@
 from pathlib import Path
-from .recipe import Recipe
-from typing import List
+
+from pyrecipes import COOKBOOK_DIR
+from pyrecipes.chapter import Chapter
 
 
 class CookBook:
-    def __init__(self, recipes: List[Recipe]) -> None:
-        self.recipes = recipes
+    def __init__(self, cookbook_dir: Path = COOKBOOK_DIR) -> None:
+        self.cookbook_dir = cookbook_dir
+        self.chapters: dict[int, Chapter] = {}
+        self._collect()
 
-    @classmethod
-    def from_dir(cls, dir: Path):
-        recipes = [
-            Recipe.from_recipe_path(recipe_path)
-            for recipe_path in sorted(dir.glob("**/example.py"))
-        ]
-        return cls(recipes)
+    def _collect(self):
+        """Collects all chapters in cookbok_dir"""
+        for chapter_dir in sorted(self.cookbook_dir.glob("[0-9]*")):
+            chapter = Chapter(chapter_dir)
+            self.chapters[chapter.number] = chapter
 
-    @property
-    def size(self):
-        return len(self.recipes)
+    def get_chapters(self, *numbers: int):
+        return [self.chapters.get(number) for number in numbers]
 
-    @property
-    def tuples(self):
-        return tuple((recipe.chapter, recipe.number) for recipe in self.recipes)
+    def __getitem__(self, key):
+        return self.chapters.get(key)
 
-    def get_recipes_by_chapter(self, chapter):
-        return [recipe for recipe in self.recipes if recipe.chapter == chapter]
+    def __iter__(self):
+        for key, value in self.chapters.items():
+            yield key, value
 
-    def get_recipe(self, chapter, number):
-        results = [
-            recipe
-            for recipe in self.recipes
-            if recipe.chapter == chapter and recipe.number == number
-        ]
-        return None if not results else results[0]
+
+cookbook = CookBook(COOKBOOK_DIR)
