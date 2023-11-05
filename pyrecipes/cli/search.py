@@ -2,6 +2,7 @@ import click
 import re
 from colorama import Fore, init
 from pyrecipes.cookbook import cookbook
+from pyrecipes.recipe import SearchMatch
 
 init(autoreset=True)
 
@@ -18,9 +19,15 @@ COLOURS = {
 }
 
 
-def render_match(pattern, line_number, line, chapter, number, color=Fore.RED):
-    click.echo(f"Recipe: {chapter}.{number}, line: {line_number}")
-    click.echo(re.sub(re.compile(pattern), color + pattern + Fore.RESET, line))
+def render_match(pattern: str, match: SearchMatch, color=Fore.RED):
+    click.echo(
+        f"Recipe: {match.chapter}.{match.recipe_number}, line: {match.line_number}"
+    )
+    click.echo(
+        re.sub(
+            re.compile(pattern), color + pattern + Fore.RESET, match.line_text
+        ).lstrip()
+    )
 
 
 @click.command()
@@ -38,4 +45,4 @@ def search(pattern, color):
             matches = recipe.search(pattern)
             if matches:
                 for match in matches:
-                    render_match(pattern, *match, COLOURS.get(color.lower(), "red"))
+                    render_match(pattern, match, COLOURS.get(color.lower(), "red"))

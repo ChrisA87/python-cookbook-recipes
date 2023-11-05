@@ -1,8 +1,18 @@
+from dataclasses import dataclass
 from pathlib import Path
 from importlib import import_module
 import re
 
 from pyrecipes.utils import clean_text, extract_leading_numbers
+
+
+@dataclass
+class SearchMatch:
+    line_number: int
+    line_text: str
+    chapter: int
+    recipe_number: int
+    recipe_name: str
 
 
 class Recipe:
@@ -27,6 +37,10 @@ class Recipe:
     @property
     def name(self):
         return self.recipe_dir.stem
+
+    @property
+    def clean_name(self):
+        return clean_text(self.name)
 
     @property
     def number(self):
@@ -66,7 +80,9 @@ class Recipe:
         with self.path.open() as file:
             for i, line in enumerate(file, start=1):
                 if re.findall(re.compile(pattern), line):
-                    results.append((i, line, self.chapter, self.number))
+                    results.append(
+                        SearchMatch(i, line, self.chapter, self.number, self.clean_name)
+                    )
         return results
 
     def __repr__(self):

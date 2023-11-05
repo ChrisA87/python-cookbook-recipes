@@ -15,23 +15,28 @@ def render_chapter(chapter: Chapter, describe: bool = False):
 
 @click.command()
 @click.option(
-    "-c",
-    "--chapter",
-    type=int,
-    help="List the recipes from a specific chapter",
-    multiple=True,
-)
-@click.option(
     "-d",
     "--describe",
     is_flag=True,
     help="Shows descriptions of the recipes",
 )
+@click.argument("chapter", required=False, default=None, type=int)
 def ls(chapter, describe):
-    """List recipes"""
+    """List recipes
+
+    \b
+    The default behaviour lists the titles of all recipes for all chapters.
+    Limit the output to a specific recipe by adding an additional 'CHAPTER'
+    argument e.g. to list chapter 1 recipes
+
+    \b
+        recipes ls 1
+
+    You can also add a '-d' flag to display a short description of each recipe.
+    """
+
     if chapter:
-        for c in sorted(chapter):
-            render_chapter(cookbook[c], describe)
+        render_chapter(cookbook[chapter], describe)
     else:
         for _, chapter in cookbook:
             render_chapter((chapter), describe)
