@@ -16,7 +16,7 @@ coverage==7.3.2
     # via -r requirements.in
 exceptiongroup==1.1.0
     # via pytest
-flake8==6.0.0
+flake8==6.1.0
     # via -r requirements.in
 idna==3.4
     # via requests
@@ -36,9 +36,9 @@ platformdirs==3.11.0
     # via black
 pluggy==1.0.0
     # via pytest
-pycodestyle==2.10.0
+pycodestyle==2.11.1
     # via flake8
-pyflakes==3.0.1
+pyflakes==3.1.0
     # via flake8
 pytest==7.4.3
     # via -r requirements.in
