@@ -8,10 +8,10 @@ class CookBook:
         self.recipes = recipes
 
     @classmethod
-    def from_dir(cls, dir: Path):
+    def from_dir(cls, recipe_dir: Path):
         recipes = [
             Recipe.from_recipe_path(recipe_path)
-            for recipe_path in sorted(dir.glob("**/example.py"))
+            for recipe_path in sorted(recipe_dir.glob("**/example.py"))
         ]
         return cls(recipes)
 
