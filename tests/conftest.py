@@ -9,7 +9,7 @@ TEMPLATE = TEMPLATE_PATH.read_text()
 @pytest.fixture(params=list(COOKBOOK_DIR.glob("**/example.py")))
 def recipe_path(request):
     """Iters over every recipe."""
-    yield request.param
+    yield request.param.parent
 
 
 @pytest.fixture(scope="session")
