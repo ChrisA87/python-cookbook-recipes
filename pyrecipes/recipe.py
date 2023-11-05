@@ -1,6 +1,6 @@
 from pathlib import Path
 from importlib import import_module
-from pyrecipes import ROOT
+from pyrecipes import RECIPES_DIR
 from pyrecipes.utils import extract_leading_numbers
 
 
@@ -19,13 +19,18 @@ class Recipe:
 
     @property
     def path(self):
-        result = list(ROOT.glob(f"{self.chapter:0>2}*/{self.number:0>2}*/example.py"))
+        result = list(
+            RECIPES_DIR.glob(f"{self.chapter:0>2}*/{self.number:0>2}*/example.py")
+        )
         return None if not result else result[0]
 
     @property
     def package(self):
         if self.exists():
-            return self.path.parent.parent.parent.stem
+            result = self.path.parent.parent.parent.stem
+            if not result.startswith("pyrecipes"):
+                return f"pyrecipes.{result}"
+            return result
 
     @property
     def chapter_name(self):

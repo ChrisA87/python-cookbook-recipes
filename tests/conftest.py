@@ -1,11 +1,12 @@
 import pytest
-from pyrecipes import ROOT, __main__
+from pyrecipes import RECIPES_DIR, TEMPLATE_PATH
+import pyrecipes
 
 
-TEMPLATE = (ROOT / "template.py").read_text()
+TEMPLATE = TEMPLATE_PATH.read_text()
 
 
-@pytest.fixture(params=list(ROOT.glob("**/example.py")))
+@pytest.fixture(params=list(RECIPES_DIR.glob("**/example.py")))
 def recipe_path(request):
     """Iters over every recipe."""
     yield request.param
@@ -29,5 +30,5 @@ def recipe_root_dir(tmp_path_factory):
 @pytest.fixture
 def patched_root(recipe_root_dir, monkeypatch):
     """Patches the real root recipe directory for the testing dummy one"""
-    monkeypatch.setattr(__main__, "ROOT", recipe_root_dir)
+    monkeypatch.setattr(pyrecipes, "ROOT", recipe_root_dir)
     yield monkeypatch
