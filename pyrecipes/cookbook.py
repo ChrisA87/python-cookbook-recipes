@@ -28,16 +28,3 @@ class CookBook:
 
 
 cookbook = CookBook(COOKBOOK_DIR)
-
-if __name__ == "__main__":
-    cookbook = CookBook()
-
-    print(cookbook)
-    print(cookbook.cookbook_dir)
-    print(cookbook.chapters)
-
-    for number, chapter in cookbook:
-        print(number, " - ", chapter)
-
-    print(cookbook[0])
-    print(cookbook[1])
