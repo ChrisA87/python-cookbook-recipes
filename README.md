@@ -37,12 +37,12 @@ recipes ls
 
 ### List all recipes in a specific chapter
 ```
-recipes ls -c 1
+recipes ls 1
 ```
 
 ### List all recipes in a specific chapter with a short description
 ```
-recipes ls -c 1 -d
+recipes ls 1 -d
 ```
 
 ### Show recipe code
@@ -60,6 +60,7 @@ recipes run 1 3
 recipes search 'islice'
 recipes search 'islice' --color green
 ```
+
 ---
 
 ## Chapters
