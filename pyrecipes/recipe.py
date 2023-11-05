@@ -1,28 +1,15 @@
 from pathlib import Path
 from importlib import import_module
-from pyrecipes import COOKBOOK_DIR
-from pyrecipes.utils import extract_leading_numbers
+
+from pyrecipes.utils import clean_text, extract_leading_numbers
 
 
 class Recipe:
     module = "example"
 
-    def __init__(self, chapter: int, number: int):
-        self.chapter = chapter
-        self.number = number
-
-    @classmethod
-    def from_recipe_path(cls, path: Path):
-        chapter = extract_leading_numbers(path.parent.parent.stem)
-        number = extract_leading_numbers(path.parent.stem)
-        return cls(chapter, number)
-
-    @property
-    def path(self):
-        result = list(
-            COOKBOOK_DIR.glob(f"{self.chapter:0>2}*/{self.number:0>2}*/example.py")
-        )
-        return None if not result else result[0]
+    def __init__(self, recipe_dir: Path):
+        self.recipe_dir = recipe_dir
+        self.path = recipe_dir / f"{self.module}.py"
 
     @property
     def package(self):
@@ -34,20 +21,26 @@ class Recipe:
 
     @property
     def chapter_name(self):
-        if self.exists():
-            return self.path.parent.parent.stem
+        return self.recipe_dir.parent.stem
 
     @property
     def name(self):
-        if self.exists():
-            return self.path.parent.stem
+        return self.recipe_dir.stem
+
+    @property
+    def number(self):
+        return extract_leading_numbers(self.name)
+
+    @property
+    def chapter(self):
+        return extract_leading_numbers((self.chapter_name))
 
     def exists(self):
-        return self.path is not None
+        return self.path.exists()
 
     def get_module(self):
         if not self.exists():
-            raise ModuleNotFoundError(f"This recipe couldn't be found:\n  {self}")
+            raise ModuleNotFoundError(f"This recipe couldn't be found:\n  {self.path}")
         return import_module(
             f"{self.package}.{self.chapter_name}.{self.name}.{self.module}"
         )
@@ -64,12 +57,13 @@ class Recipe:
             getattr(self.get_module(), "main")()
             print()
         else:
-            print(f"Couldn't find {self}")
+            print(f"Couldn't find Recipe {self.name}")
 
     def render(self):
         """TODO"""
 
     def __repr__(self):
-        return (
-            f"{self.__class__.__name__}(chapter={self.chapter}, number={self.number})"
-        )
+        return f"{self.__class__.__name__}({self.path})"
+
+    def __str__(self) -> str:
+        return clean_text(self.name)
