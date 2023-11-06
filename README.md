@@ -1,7 +1,7 @@
 # Pyrecipes
 
 ![ci workflow](https://github.com/ChrisA87/pyrecipes/actions/workflows/ci.yml/badge.svg)
-![coverage-badge](https://github.com/ChrisA87/pyrecipes/blob/main/coverage.svg)
+![coverage-badge](https://raw.githubusercontent.com/ChrisA87/pyrecipes/3aac7fb72fa703875f63f99a864646039bc080b4/coverage.svg)
 
 Useful recipes from David Beazley & Brian K. Jones' O'Reilly book [Python Cookbook (3rd edition)](https://www.oreilly.com/library/view/python-cookbook-3rd/9781449357337/).
 
