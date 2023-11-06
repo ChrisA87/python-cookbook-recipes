@@ -9,12 +9,11 @@ Original code samples at https://github.com/dabeaz/python-cookbook
 
 This project implements a simple CLI tool to list, run and view recipes.
 
-## Setup
+## Installation
 
-1. Consider creating and activating a new [virtual environment](https://virtualenv.pypa.io/en/latest/)
-2. Clone this repo
-3. cd into the project root and run `pip install .`
-4. Run `recipes` to confirm successful install 
+```
+pip install pyrecipes
+```
 
 ---
 
