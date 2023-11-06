@@ -31,10 +31,6 @@ version = {attr = "pyrecipes.__version__"}
 recipes = "pyrecipes.cli.main:main"
 
 
-[project.urls]
-"Homepage" = "https://github.com/ChrisA87/pyrecipes"
-
-
 [tool.coverage.run]
 command_line = "-m pytest tests"
 source = [
@@ -54,3 +50,7 @@ exclude_also = [
 
 [tool.coverage.html]
 directory = "htmlcov"
+
+
+[tool.poetry]
+homepage = "https://github.com/ChrisA87/pyrecipes"
