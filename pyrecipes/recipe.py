@@ -25,10 +25,7 @@ class Recipe:
     @property
     def package(self):
         if self.exists():
-            result = self.path.parent.parent.parent.stem
-            if not result.startswith("pyrecipes"):
-                return f"pyrecipes.{result}"
-            return result
+            return f"pyrecipes.{self.path.parent.parent.parent.stem}"
 
     @property
     def chapter_name(self):

@@ -8,7 +8,8 @@ from pyrecipes.recipe import Recipe
 @click.argument("number", type=int)
 def run(chapter, number):
     """Runs a recipe"""
-    click.echo(f"running recipe {chapter}.{number}")
     recipe = cookbook[chapter][number]
-    if isinstance(recipe, Recipe):
+    if isinstance(recipe, Recipe) and recipe.exists():
         recipe.run()
+    else:
+        click.echo(f"Couldn't find recipe {chapter}.{number}")
