@@ -1,4 +1,4 @@
-# Python Cookbook Recipes
+# Pyrecipes
 
 ![ci workflow](https://github.com/ChrisA87/pyrecipes/actions/workflows/ci.yml/badge.svg)
 ![coverage-badge](./coverage.svg)
