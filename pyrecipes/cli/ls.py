@@ -1,15 +1,15 @@
 import click
 from pyrecipes.chapter import Chapter
 from pyrecipes.cookbook import cookbook
+from pyrecipes.utils import text_border
 
 
 def render_chapter(chapter: Chapter, describe: bool = False):
-    width = len(str(chapter)) + 2
-    click.echo(f'{"=" * width}\n{str(chapter):^{width}}\n{"=" * width}')
+    click.echo(text_border(str(chapter), side_symbol=" "))
     for _, recipe in chapter:
-        click.echo(f"  {recipe}")
+        click.echo(f"{recipe}")
         if describe:
-            click.echo(f"    {recipe.get_docstring()}\n")
+            click.echo(f"{recipe.get_docstring()}\n")
     click.echo("")
 
 

@@ -11,7 +11,11 @@ certifi==2023.5.7
 charset-normalizer==3.1.0
     # via requests
 click==8.1.7
-    # via black
+    # via
+    #   -r requirements.in
+    #   black
+colorama==0.4.6
+    # via -r requirements.in
 coverage==7.3.2
     # via -r requirements.in
 exceptiongroup==1.1.0

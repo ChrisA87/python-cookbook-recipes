@@ -1,4 +1,5 @@
 import pytest
+from pyrecipes.chapter import Chapter
 from pyrecipes.cookbook import CookBook
 
 
@@ -24,3 +25,18 @@ def test_CookBook_get_recipes_by_chapter__multiple(cookbook):
 
     assert len(chapters) == 2
     assert [chapter.number for chapter in chapters] == [1, 2]
+
+
+def test_CookBook_indexing__exists(cookbook):
+    assert isinstance(cookbook[1], Chapter)
+
+
+def test_CookBook_indexing__doesnt_exist(cookbook):
+    assert cookbook[100] is None
+
+
+def test_iterating_over_CookBook(cookbook):
+    for (num, chapter), expected in zip(cookbook, [1, 2, 3]):
+        assert num == expected
+        assert chapter.number == expected
+        assert isinstance(chapter, Chapter)

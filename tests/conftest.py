@@ -1,6 +1,7 @@
 import pytest
 from pyrecipes import COOKBOOK_DIR, TEMPLATE_PATH
 import pyrecipes
+from pyrecipes.recipe import Recipe
 
 
 TEMPLATE = TEMPLATE_PATH.read_text()
@@ -25,6 +26,11 @@ def recipe_root_dir(tmp_path_factory):
             recipe_dir.mkdir(parents=True, exist_ok=True)
             (recipe_dir / "example.py").write_text(TEMPLATE)
     yield root_dir
+
+
+@pytest.fixture
+def valid_recipe(recipe_root_dir):
+    yield Recipe(recipe_root_dir / "01_test_chapter" / "01_test_recipe")
 
 
 @pytest.fixture
