@@ -76,7 +76,6 @@ class Recipe:
 
     def search(self, pattern):
         results = []
-
         with self.path.open() as file:
             for i, line in enumerate(file, start=1):
                 if re.findall(re.compile(pattern), line):

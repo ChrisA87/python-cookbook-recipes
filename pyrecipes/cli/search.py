@@ -21,7 +21,7 @@ COLOURS = {
 
 def render_match(pattern: str, match: SearchMatch, color=Fore.RED):
     click.echo(
-        f"Recipe: {match.chapter}.{match.recipe_number}, line: {match.line_number}"
+        f"Recipe: {match.chapter}.{match.recipe_number}, Line: {match.line_number} - {match.recipe_name}"
     )
     click.echo(
         re.sub(
