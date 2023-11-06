@@ -56,6 +56,6 @@ recipes run 1 3
 
 ### Search for recipes containing a pattern
 ```
-recipes search 'islice'
-recipes search 'islice' --color green
+recipes search 'itertools'
+recipes search 'itertools' --color green
 ```
