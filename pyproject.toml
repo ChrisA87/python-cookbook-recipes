@@ -32,7 +32,8 @@ recipes = "pyrecipes.cli.main:main"
 
 
 [project.urls]
-"Homepage" = "https://github.com/ChrisA87/pyrecipes"
+"Homepage" = "https://pypi.org/project/pyrecipes/"
+"Repository" = "https://github.com/ChrisA87/pyrecipes"
 
 
 [tool.coverage.run]
