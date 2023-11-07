@@ -38,7 +38,8 @@ def test_chapter(monkeypatch, capsys, command):
 
 
 @pytest.mark.parametrize(
-    "command", ["recipes ls", "recipes ls 1", "recipes ls -d", "recipes ls -h"]
+    "command",
+    ["recipes ls", "recipes ls 1", "recipes ls -d", "recipes ls -h", "recipes ls 1000"],
 )
 def test_ls(monkeypatch, capsys, command):
     monkeypatch = patch_argv(monkeypatch, command)
