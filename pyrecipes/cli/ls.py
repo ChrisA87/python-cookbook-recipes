@@ -1,6 +1,7 @@
 import click
 from pyrecipes.chapter import Chapter
 from pyrecipes.cookbook import cookbook
+from pyrecipes.errors import ChapterNotFoundError
 from pyrecipes.utils import text_border
 
 
@@ -36,7 +37,10 @@ def ls(chapter, describe):
     """
 
     if chapter:
-        render_chapter(cookbook[chapter], describe)
+        try:
+            render_chapter(cookbook[chapter], describe)
+        except ChapterNotFoundError as exc:
+            click.echo(exc)
     else:
         for _, chapter in cookbook:
             render_chapter((chapter), describe)

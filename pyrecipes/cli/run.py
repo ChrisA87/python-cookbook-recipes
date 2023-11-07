@@ -1,6 +1,6 @@
 import click
 from pyrecipes.cookbook import cookbook
-from pyrecipes.recipe import Recipe
+from pyrecipes.errors import ChapterNotFoundError, RecipeNotFoundError
 
 
 @click.command()
@@ -8,8 +8,7 @@ from pyrecipes.recipe import Recipe
 @click.argument("number", type=int)
 def run(chapter, number):
     """Runs a recipe"""
-    recipe = cookbook[chapter][number]
-    if isinstance(recipe, Recipe) and recipe.exists():
-        recipe.run()
-    else:
-        click.echo(f"Couldn't find recipe {chapter}.{number}")
+    try:
+        cookbook[chapter][number].run()
+    except (ChapterNotFoundError, RecipeNotFoundError) as exc:
+        click.echo(exc)

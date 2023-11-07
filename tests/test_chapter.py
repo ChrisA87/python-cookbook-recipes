@@ -1,6 +1,7 @@
 import pytest
 
 from pyrecipes.chapter import Chapter
+from pyrecipes.errors import RecipeNotFoundError
 from pyrecipes.recipe import Recipe
 
 
@@ -15,6 +16,7 @@ def test_Chapter_init(chapter, recipe_root_dir):
     assert chapter.name == "01_test_chapter"
     assert chapter.recipes.keys() == {1, 2, 3}
     assert str(chapter) == " 1) Test Chapter"
+    assert chapter.__repr__() == "Chapter(number=1, name=01_test_chapter, recipes=3)"
 
 
 def test_Chapter_indexing_found_returns_recipe(chapter):
@@ -23,9 +25,9 @@ def test_Chapter_indexing_found_returns_recipe(chapter):
     assert recipe.number == 1
 
 
-def test_Chapter_indexing_not_found_returns_None(chapter):
-    recipe = chapter[200]
-    assert recipe is None
+def test_Chapter_indexing_not_found_raises_RecipeNotFoundError(chapter):
+    with pytest.raises(RecipeNotFoundError, match="Recipe 1.200 not found"):
+        _ = chapter[200]
 
 
 def test_Chapter_iterating(chapter):

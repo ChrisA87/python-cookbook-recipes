@@ -2,6 +2,7 @@ from pathlib import Path
 
 from pyrecipes import COOKBOOK_DIR
 from pyrecipes.chapter import Chapter
+from pyrecipes.errors import ChapterNotFoundError
 
 
 class CookBook:
@@ -16,11 +17,11 @@ class CookBook:
             chapter = Chapter(chapter_dir)
             self.chapters[chapter.number] = chapter
 
-    def get_chapters(self, *numbers: int):
-        return [self.chapters.get(number) for number in numbers]
-
     def __getitem__(self, key):
-        return self.chapters.get(key)
+        chapter = self.chapters.get(key)
+        if chapter:
+            return self.chapters.get(key)
+        raise ChapterNotFoundError(key)
 
     def __iter__(self):
         for key, value in self.chapters.items():

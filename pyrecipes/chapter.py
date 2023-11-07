@@ -1,4 +1,5 @@
 from pathlib import Path
+from pyrecipes.errors import RecipeNotFoundError
 
 from pyrecipes.recipe import Recipe
 from pyrecipes.utils import clean_text, extract_leading_numbers
@@ -25,7 +26,10 @@ class Chapter:
             self.recipes[recipe.number] = recipe
 
     def __getitem__(self, key):
-        return self.recipes.get(key)
+        recipe = self.recipes.get(key)
+        if recipe:
+            return recipe
+        raise RecipeNotFoundError(f"{self.number}.{key}")
 
     def __iter__(self):
         for key, value in self.recipes.items():
