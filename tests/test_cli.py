@@ -71,7 +71,9 @@ def test_run(monkeypatch, capsys, command):
     assert err == ""
 
 
-@pytest.mark.parametrize("command", ["recipes search test", "recipes search -h"])
+@pytest.mark.parametrize(
+    "command", ["recipes search test", "recipes search -h", "recipes search foobar"]
+)
 def test_search(monkeypatch, capsys, command):
     monkeypatch = patch_argv(monkeypatch, command)
     exc, _, err = call_main(capsys)
