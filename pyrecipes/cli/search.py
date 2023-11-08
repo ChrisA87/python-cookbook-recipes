@@ -33,7 +33,7 @@ def render_matches(pattern: str, match_dict: Mapping[Chapter, Mapping]):
     for chapter, recipes in match_dict.items():
         click.echo(text_border(str(chapter)))
         for recipe, matches in recipes.items():
-            click.echo(recipe)
+            click.echo(f"{chapter.number}.{recipe}")
             for match in matches:
                 render_match(pattern, match)
             click.echo("")
