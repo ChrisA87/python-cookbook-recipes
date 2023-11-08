@@ -15,7 +15,7 @@ def test_Chapter_init(chapter, recipe_root_dir):
     assert chapter.number == 1
     assert chapter.name == "01_test_chapter"
     assert chapter.recipes.keys() == {1, 2, 3}
-    assert str(chapter) == " 1) Test Chapter"
+    assert str(chapter) == "1) Test Chapter"
     assert chapter.__repr__() == "Chapter(number=1, name=01_test_chapter, recipes=3)"
 
 

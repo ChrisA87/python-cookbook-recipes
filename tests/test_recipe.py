@@ -10,8 +10,8 @@ def test_recipe__valid__exists(valid_recipe):
     assert valid_recipe.number == 1
     assert valid_recipe.name == "01_test_recipe"
     assert valid_recipe.package == "pyrecipes.recipes0"
-    assert valid_recipe.clean_name == " 1) Test recipe"
-    assert str(valid_recipe) == " 1) Test recipe"
+    assert valid_recipe.clean_name == "1) Test recipe"
+    assert str(valid_recipe) == "1) Test recipe"
     assert valid_recipe.exists()
 
 
@@ -54,7 +54,7 @@ def test_recipes_search_found(valid_recipe):
             line_text="TODO\n",
             chapter=1,
             recipe_number=1,
-            recipe_name=" 1) Test recipe",
+            recipe_name="1) Test recipe",
         )
     ]
 
