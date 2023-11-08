@@ -1,6 +1,5 @@
 from pathlib import Path
 from pyrecipes.errors import RecipeNotFoundError
-
 from pyrecipes.recipe import Recipe
 from pyrecipes.utils import clean_text, extract_leading_numbers
 
@@ -18,6 +17,14 @@ class Chapter:
     @property
     def name(self):
         return self.chapter_dir.stem
+
+    def search(self, pattern: str):
+        results = {}
+        for recipe in self.recipes.values():
+            matches = recipe.search(pattern)
+            if matches:
+                results.setdefault(recipe, []).extend(matches)
+        return results
 
     def _collect(self):
         """Collects recipes"""

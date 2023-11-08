@@ -3,7 +3,7 @@ from pyrecipes import utils
 
 def test_clean_text():
     text = "01_this_is_a_test"
-    assert utils.clean_text(text) == " 1) This is a test"
+    assert utils.clean_text(text) == "1) This is a test"
 
 
 def test_extract_leading_number():

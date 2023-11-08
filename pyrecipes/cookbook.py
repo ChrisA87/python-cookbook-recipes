@@ -1,5 +1,4 @@
 from pathlib import Path
-
 from pyrecipes import COOKBOOK_DIR
 from pyrecipes.chapter import Chapter
 from pyrecipes.errors import ChapterNotFoundError
@@ -16,6 +15,14 @@ class CookBook:
         for chapter_dir in sorted(self.cookbook_dir.glob("[0-9]*")):
             chapter = Chapter(chapter_dir)
             self.chapters[chapter.number] = chapter
+
+    def search(self, pattern: str):
+        results = {}
+        for chapter in self.chapters.values():
+            matches = chapter.search(pattern)
+            if matches:
+                results.setdefault(chapter, {}).update(matches)
+        return results
 
     def __getitem__(self, key):
         chapter = self.chapters.get(key)
