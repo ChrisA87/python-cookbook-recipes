@@ -66,6 +66,7 @@ def render_matches(
     "--color",
     type=click.Choice(COLORS.keys(), case_sensitive=False),
     default="red",
+    help="Change the color used to highlight matches. The default is red.",
 )
 @click.option(
     "-i",
@@ -78,7 +79,14 @@ def render_matches(
     "-c", "--count-only", is_flag=True, help="Return the count of matches only."
 )
 def search(pattern, color, ignore_case, count_only):
-    """Search the recipes for a pattern"""
+    """Search the recipes for a pattern
+
+    \b
+    - RegEx patterns are supported.
+    - Searches are case-sensitive by default. Use the `-i` flag to make searches case-insensitive.
+    - Use the `-c` flag to display count of matches.
+
+    """
     color = COLORS.get(color)
     match_dict = cookbook.search(pattern, ignore_case)
 
