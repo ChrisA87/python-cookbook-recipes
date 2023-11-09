@@ -28,7 +28,7 @@ def get_n_matches(matches):
     count = 0
     for recipes in matches.values():
         for matches in recipes.values():
-            count += len(matches)
+            count += sum(match.count for match in matches)
     return count
 
 
@@ -37,7 +37,10 @@ def render_match(
 ):
     flags = re.IGNORECASE if ignore_case else 0
     text = re.sub(
-        pattern, color + pattern + Fore.RESET, match.line_text, flags=flags
+        pattern,
+        lambda match: f"{color}{match.group()}{Fore.RESET}",
+        match.line_text,
+        flags=flags,
     ).strip()
     click.echo(f"  Line {match.line_number}: {text}")
 
