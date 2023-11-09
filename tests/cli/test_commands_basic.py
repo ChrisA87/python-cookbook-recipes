@@ -72,7 +72,14 @@ def test_run(monkeypatch, capsys, command):
 
 
 @pytest.mark.parametrize(
-    "command", ["recipes search test", "recipes search -h", "recipes search foobar"]
+    "command",
+    [
+        "recipes search test",
+        "recipes search -h",
+        "recipes search foobar",
+        "recipes search test -c",
+        "recipes search -i test",
+    ],
 )
 def test_search(monkeypatch, capsys, command):
     monkeypatch = patch_argv(monkeypatch, command)
