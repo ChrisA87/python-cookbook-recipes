@@ -55,9 +55,11 @@ recipes run 1 3
 ```
 
 ### Search for recipes containing a pattern
+RegEx is supported.
 ```
 recipes search 'itertools'
 recipes search 'itertools' --color green
 recipes search 'event' --ignore-case
 recipes search 'functools' -c
+recipes search '[a-z]\d[^\s]'
 ```
