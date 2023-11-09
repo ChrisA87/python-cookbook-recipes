@@ -70,11 +70,13 @@ class Recipe:
         else:
             print(f"Couldn't find Recipe {self.name}")
 
-    def search(self, pattern):
+    def search(self, pattern, ignore_case: bool = False):
         results = []
+        flags = re.IGNORECASE if ignore_case else 0
+
         with self.path.open() as file:
             for i, line in enumerate(file, start=1):
-                if re.findall(re.compile(pattern), line):
+                if re.findall(re.compile(pattern, flags=flags), line):
                     results.append(
                         SearchMatch(i, line, self.chapter, self.number, self.clean_name)
                     )

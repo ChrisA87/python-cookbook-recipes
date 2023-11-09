@@ -18,10 +18,10 @@ class Chapter:
     def name(self):
         return self.chapter_dir.stem
 
-    def search(self, pattern: str):
+    def search(self, pattern: str, ignore_case: bool = False):
         results = {}
         for recipe in self.recipes.values():
-            matches = recipe.search(pattern)
+            matches = recipe.search(pattern, ignore_case)
             if matches:
                 results.setdefault(recipe, []).extend(matches)
         return results
