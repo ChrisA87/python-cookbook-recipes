@@ -12,6 +12,16 @@ class SearchMatch:
     chapter: int
     recipe_number: int
     recipe_name: str
+    count: int
+
+    def __repr__(self) -> str:
+        return (
+            f"{self.__class__.__name__}("
+            f"chapter={self.chapter}, "
+            f"number={self.recipe_number}, "
+            f"line_number={self.line_number}, "
+            f"count={self.count})"
+        )
 
 
 class Recipe:
@@ -76,14 +86,24 @@ class Recipe:
 
         with self.path.open() as file:
             for i, line in enumerate(file, start=1):
-                if re.findall(re.compile(pattern, flags=flags), line):
+                matches = re.findall(re.compile(pattern, flags=flags), line)
+                if matches:
                     results.append(
-                        SearchMatch(i, line, self.chapter, self.number, self.clean_name)
+                        SearchMatch(
+                            line_number=i,
+                            line_text=line,
+                            chapter=self.chapter,
+                            recipe_number=self.number,
+                            recipe_name=self.clean_name,
+                            count=len(matches),
+                        )
                     )
         return results
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.path})"
+        return (
+            f"{self.__class__.__name__}(chapter={self.chapter}, number={self.number})"
+        )
 
     def __str__(self) -> str:
         return clean_text(self.name)
