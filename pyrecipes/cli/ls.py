@@ -43,4 +43,4 @@ def ls(chapter, describe):
             click.echo(exc)
     else:
         for _, chapter in cookbook:
-            render_chapter((chapter), describe)
+            render_chapter(chapter, describe)

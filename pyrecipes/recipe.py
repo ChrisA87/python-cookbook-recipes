@@ -54,7 +54,7 @@ class Recipe:
 
     @property
     def chapter(self):
-        return extract_leading_numbers((self.chapter_name))
+        return extract_leading_numbers(self.chapter_name)
 
     def exists(self):
         return self.path.exists()
