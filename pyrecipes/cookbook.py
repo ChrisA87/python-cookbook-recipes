@@ -16,10 +16,10 @@ class CookBook:
             chapter = Chapter(chapter_dir)
             self.chapters[chapter.number] = chapter
 
-    def search(self, pattern: str):
+    def search(self, pattern: str, ignore_case: bool = False):
         results = {}
         for chapter in self.chapters.values():
-            matches = chapter.search(pattern)
+            matches = chapter.search(pattern, ignore_case)
             if matches:
                 results.setdefault(chapter, {}).update(matches)
         return results
