@@ -97,5 +97,3 @@ def search(pattern, color, ignore_case, count_only):
 
     if match_dict:
         render_matches(pattern, match_dict, color, ignore_case)
-    else:
-        click.echo(f"No recipes found matching '{pattern}'")
