@@ -15,6 +15,8 @@ Check out Author David Beazley's website: https://www.dabeaz.com/
 
 Add this amazing book to your bookshelf [here](https://www.amazon.co.uk/Python-Cookbook-David-Beazley/dp/1449340377/ref=sr_1_1?crid=1OU8UMUB7WGMI&keywords=python+cookbook&qid=1699549493&s=books&sprefix=python+cookbook%2Cstripbooks%2C279&sr=1-1)
 
+[![Python Cookbook](./imgs/python-cookbook-cover.jpeg)](https://www.amazon.co.uk/Python-Cookbook-David-Beazley/dp/1449340377/ref=sr_1_1?crid=1OU8UMUB7WGMI&keywords=python+cookbook&qid=1699549493&s=books&sprefix=python+cookbook%2Cstripbooks%2C279&sr=1-1)
+
 ---
 
 ## Installation
