@@ -38,8 +38,8 @@ version = {attr = "pyrecipes.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["pyrecipes/*"]
-exclude = ["tests/*", "imgs/*"]
+include = ["pyrecipes*"]
+exclude = ["tests*", "imgs*"]
 
 
 [tool.coverage.run]
