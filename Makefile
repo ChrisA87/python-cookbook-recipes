@@ -3,7 +3,7 @@
 default: lint test
 
 lint:
-	flake8 pyrecipes tests
+	flake8 src/pyrecipes tests
 
 test:
 	pytest tests
