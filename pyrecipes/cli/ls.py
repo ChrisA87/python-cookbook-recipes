@@ -1,16 +1,28 @@
+import textwrap
 import click
 from pyrecipes.chapter import Chapter
 from pyrecipes.cookbook import cookbook
 from pyrecipes.errors import ChapterNotFoundError
 from pyrecipes.utils import text_border
+from colorama import Fore
 
 
 def render_chapter(chapter: Chapter, describe: bool = False):
     click.echo(text_border(str(chapter), side_symbol=" "))
     for _, recipe in chapter:
-        click.echo(f"{recipe}")
+        click.echo(recipe)
         if describe:
-            click.echo(f"{recipe.get_docstring()}\n")
+            click.echo(
+                Fore.YELLOW
+                + textwrap.fill(
+                    recipe.get_docstring(),
+                    70,
+                    initial_indent="   ",
+                    subsequent_indent="   ",
+                )
+                + Fore.RESET
+                + "\n"
+            )
     click.echo("")
 
 
@@ -35,7 +47,6 @@ def ls(chapter, describe):
 
     You can also add a '-d' flag to display a short description of each recipe.
     """
-
     if chapter:
         try:
             render_chapter(cookbook[chapter], describe)
