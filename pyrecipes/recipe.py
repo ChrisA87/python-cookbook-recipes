@@ -67,7 +67,7 @@ class Recipe:
         )
 
     def get_docstring(self):
-        return self.get_module().__doc__.replace("\n", " ")
+        return self.get_module().__doc__.strip()
 
     def get_code(self):
         return self.path.read_text()
