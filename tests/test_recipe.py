@@ -11,7 +11,7 @@ def test_recipe__valid__exists(valid_recipe):
     assert valid_recipe.name == "01_test_recipe"
     assert valid_recipe.package == "pyrecipes.recipes0"
     assert valid_recipe.clean_name == "1) Test recipe"
-    assert str(valid_recipe) == "1) Test recipe"
+    assert str(valid_recipe) == "1.1) Test recipe"
     assert valid_recipe.exists()
 
 

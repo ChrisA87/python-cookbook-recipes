@@ -106,4 +106,4 @@ class Recipe:
         )
 
     def __str__(self) -> str:
-        return clean_text(self.name)
+        return f"{self.chapter}.{self.clean_name}"
