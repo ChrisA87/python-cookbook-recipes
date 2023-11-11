@@ -1,15 +1,15 @@
 .PHONY = lint test
 
-default: lint test
+default: lint test coverage
 
 lint:
 	flake8 src/pyrecipes tests
 
 test:
-	pytest tests
+	coverage run
 
 coverage:
-	coverage run --source pyrecipes -m pytest tests; coverage report
+	coverage report
 
 pip-install:
 	pip install pip-tools
