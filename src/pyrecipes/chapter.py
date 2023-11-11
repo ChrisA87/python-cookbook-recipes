@@ -1,7 +1,7 @@
 from pathlib import Path
-from pyrecipes.errors import RecipeNotFoundError
-from pyrecipes.recipe import Recipe
-from pyrecipes.utils import clean_text, extract_leading_numbers
+from .errors import RecipeNotFoundError
+from .recipe import Recipe
+from .utils.text import clean_text, extract_leading_numbers
 
 
 class Chapter:
@@ -39,8 +39,8 @@ class Chapter:
         raise RecipeNotFoundError(f"{self.number}.{key}")
 
     def __iter__(self):
-        for key, value in self.recipes.items():
-            yield key, value
+        for recipe in self.recipes.values():
+            yield recipe
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(number={self.number}, name={self.name}, recipes={len(self.recipes)})"

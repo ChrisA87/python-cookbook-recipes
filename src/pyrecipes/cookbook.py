@@ -31,8 +31,8 @@ class CookBook:
         raise ChapterNotFoundError(key)
 
     def __iter__(self):
-        for key, value in self.chapters.items():
-            yield key, value
+        for chapter in self.chapters.values():
+            yield chapter
 
 
 cookbook = CookBook(COOKBOOK_DIR)

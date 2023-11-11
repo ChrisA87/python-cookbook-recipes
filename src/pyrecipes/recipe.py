@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from importlib import import_module
 import re
-from pyrecipes.utils import clean_text, extract_leading_numbers
+from .utils.text import clean_text, extract_leading_numbers
 
 
 @dataclass

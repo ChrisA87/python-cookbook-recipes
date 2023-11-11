@@ -2,7 +2,7 @@ import sys
 import click
 from colorama import Fore, init
 from pyrecipes.cookbook import cookbook
-from .utils import get_n_matches, render_matches
+from pyrecipes.utils.cli import get_n_matches, render_matches
 
 init(autoreset=True)
 
