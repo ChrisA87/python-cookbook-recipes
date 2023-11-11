@@ -1,29 +1,7 @@
-import textwrap
 import click
-from pyrecipes.chapter import Chapter
 from pyrecipes.cookbook import cookbook
 from pyrecipes.errors import ChapterNotFoundError
-from pyrecipes.utils import text_border
-from colorama import Fore
-
-
-def render_chapter(chapter: Chapter, describe: bool = False):
-    click.echo(text_border(str(chapter), side_symbol=" "))
-    for _, recipe in chapter:
-        click.echo(recipe)
-        if describe:
-            click.echo(
-                Fore.YELLOW
-                + textwrap.fill(
-                    recipe.get_docstring(),
-                    70,
-                    initial_indent="   ",
-                    subsequent_indent="   ",
-                )
-                + Fore.RESET
-                + "\n"
-            )
-    click.echo("")
+from .utils import render_chapter
 
 
 @click.command()
