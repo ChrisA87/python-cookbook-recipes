@@ -6,7 +6,7 @@ from colorama import Fore
 from colorama.ansi import AnsiFore
 from pyrecipes.chapter import Chapter
 from pyrecipes.recipe import Recipe, SearchMatch
-from pyrecipes.utils import text_border
+from .text import text_border
 
 
 def render_recipe(recipe: Recipe, describe: bool = False):
@@ -27,7 +27,7 @@ def render_recipe(recipe: Recipe, describe: bool = False):
 
 def render_chapter(chapter: Chapter, describe: bool = False):
     click.echo(text_border(str(chapter), side_symbol=" "))
-    for _, recipe in chapter:
+    for recipe in chapter:
         render_recipe(recipe, describe)
     click.echo("")
 
