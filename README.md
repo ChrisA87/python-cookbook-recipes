@@ -1,6 +1,7 @@
 # Pyrecipes
 
 ![ci workflow](https://github.com/ChrisA87/pyrecipes/actions/workflows/ci.yml/badge.svg)
+![Publish Pyrecipes to PyPI](https://github.com/ChrisA87/pyrecipes/actions/workflows/publish.yml/badge.svg)
 ![coverage-badge](https://raw.githubusercontent.com/ChrisA87/pyrecipes/aa37d4757dd7ecbc0b1f2ec93eeb55165be12307/coverage.svg)
 
 ---
