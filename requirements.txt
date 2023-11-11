@@ -30,6 +30,8 @@ mccabe==0.7.0
     # via flake8
 mypy-extensions==1.0.0
     # via black
+numpy==1.26.1
+    # via -r requirements.in
 packaging==23.0
     # via
     #   black
@@ -45,6 +47,8 @@ pycodestyle==2.11.1
 pyflakes==3.1.0
     # via flake8
 pytest==7.4.3
+    # via -r requirements.in
+pytz==2023.3.post1
     # via -r requirements.in
 requests==2.31.0
     # via -r requirements.in

@@ -5,3 +5,5 @@ coverage
 requests
 click
 colorama
+numpy
+pytz
