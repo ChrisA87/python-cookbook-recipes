@@ -7,7 +7,6 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ main ]
   workflow_dispatch:
 
@@ -28,9 +27,6 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-      #   architecture: "x64"
-      # env:
-      #   AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
     - name: Install dependencies
       run: |
