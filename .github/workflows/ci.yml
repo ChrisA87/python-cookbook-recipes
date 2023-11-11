@@ -31,8 +31,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install install pip-tools
-        pip-sync requirements/dev-requirements.txt requirements/requirements.txt
+        pip install -r requirements/requirements.in -r requirements/dev-requirements.in
         pip install .
 
     - name: Lint with flake8
