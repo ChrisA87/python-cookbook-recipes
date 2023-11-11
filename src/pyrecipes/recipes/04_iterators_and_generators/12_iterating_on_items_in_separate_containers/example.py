@@ -1,5 +1,5 @@
 """
-You need to perform the same operation on many objects, bu the objects are 
+You need to perform the same operation on many objects, bu the objects are
 contained in different containers, and you'd like to avoid nested loops
 without losing the readability of your code.
 """
