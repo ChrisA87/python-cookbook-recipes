@@ -13,7 +13,12 @@ readme = "README.md"
 requires-python = ">=3.7"
 license = {text = "MIT"}
 classifiers = [
-    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License"
 ]
 dependencies = [
     "requests>=2.31",
@@ -32,13 +37,13 @@ recipes = "pyrecipes.cli.main:main"
 "Repository" = "https://github.com/ChrisA87/pyrecipes"
 
 
-[tool.setuptools.dynamic]
-version = {attr = "pyrecipes.__version__"}
-
-
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["pyrecipes*"]
+
+
+[tool.setuptools.dynamic]
+version = {attr = "pyrecipes.__version__"}
 
 
 [tool.coverage.run]
