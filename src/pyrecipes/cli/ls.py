@@ -1,7 +1,7 @@
 import click
 from pyrecipes.cookbook import cookbook
 from pyrecipes.errors import ChapterNotFoundError
-from .utils import render_chapter
+from pyrecipes.utils.cli import render_chapter
 
 
 @click.command()
@@ -31,5 +31,5 @@ def ls(chapter, describe):
         except ChapterNotFoundError as exc:
             click.echo(exc)
     else:
-        for _, chapter in cookbook:
+        for chapter in cookbook:
             render_chapter(chapter, describe)
