@@ -47,9 +47,9 @@ source = [
     "pyrecipes"
     ]
 omit = [
-    "src/pyrecipes/template.py",
+    "./src/pyrecipes/template.py",
     "**/__init__.py",
-    "src/pyrecipes/recipes/*"
+    "./src/pyrecipes/recipes/*"
     ]
 
 
