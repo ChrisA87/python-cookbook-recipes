@@ -34,8 +34,8 @@ def test_Chapter_iterating(chapter):
     expected_recipe_numbers = [1, 2, 3]
     expected_recipe_names = ["01_test_recipe", "02_test_recipe", "03_test_recipe"]
 
-    for (number, recipe), expected_number, expected_name in zip(
+    for recipe, expected_number, expected_name in zip(
         chapter, expected_recipe_numbers, expected_recipe_names
     ):
-        assert number == expected_number
+        assert recipe.number == expected_number
         assert recipe.name == expected_name

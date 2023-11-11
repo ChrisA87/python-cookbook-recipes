@@ -24,7 +24,6 @@ def test_CookBook_indexing__doesnt_exist(cookbook):
 
 
 def test_iterating_over_CookBook(cookbook):
-    for (num, chapter), expected in zip(cookbook, [1, 2, 3]):
-        assert num == expected
+    for chapter, expected in zip(cookbook, [1, 2, 3]):
         assert chapter.number == expected
         assert isinstance(chapter, Chapter)
