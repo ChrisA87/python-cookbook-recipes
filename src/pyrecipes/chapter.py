@@ -18,6 +18,10 @@ class Chapter:
     def name(self):
         return self.chapter_dir.stem
 
+    @property
+    def size(self):
+        return len(self.recipes)
+
     def search(self, pattern: str, ignore_case: bool = False):
         results = {}
         for recipe in self.recipes.values():

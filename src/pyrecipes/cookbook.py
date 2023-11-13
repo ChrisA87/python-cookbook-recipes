@@ -16,6 +16,10 @@ class CookBook:
             chapter = Chapter(chapter_dir)
             self.chapters[chapter.number] = chapter
 
+    @property
+    def size(self):
+        return sum(chapter.size for chapter in self)
+
     def search(self, pattern: str, ignore_case: bool = False):
         results = {}
         for chapter in self.chapters.values():
