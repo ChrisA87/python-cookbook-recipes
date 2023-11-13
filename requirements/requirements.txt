@@ -4,59 +4,21 @@
 #
 #    pip-compile requirements/requirements.in
 #
-black==23.10.1
-    # via -r requirements/requirements.in
 certifi==2023.5.7
     # via requests
 charset-normalizer==3.1.0
     # via requests
 click==8.1.7
-    # via
-    #   -r requirements/requirements.in
-    #   black
+    # via -r requirements/requirements.in
 colorama==0.4.6
-    # via -r requirements/requirements.in
-coverage==7.3.2
-    # via -r requirements/requirements.in
-exceptiongroup==1.1.0
-    # via pytest
-flake8==6.1.0
     # via -r requirements/requirements.in
 idna==3.4
     # via requests
-iniconfig==2.0.0
-    # via pytest
-mccabe==0.7.0
-    # via flake8
-mypy-extensions==1.0.0
-    # via black
-numpy==1.26.1
-    # via -r requirements/requirements.in
-packaging==23.0
-    # via
-    #   black
-    #   pytest
-pathspec==0.11.2
-    # via black
-platformdirs==3.11.0
-    # via black
-pluggy==1.0.0
-    # via pytest
-pycodestyle==2.11.1
-    # via flake8
-pyflakes==3.1.0
-    # via flake8
-pytest==7.4.3
+numpy==1.26.2
     # via -r requirements/requirements.in
 pytz==2023.3.post1
     # via -r requirements/requirements.in
 requests==2.31.0
     # via -r requirements/requirements.in
-tomli==2.0.1
-    # via
-    #   black
-    #   pytest
-typing-extensions==4.8.0
-    # via black
 urllib3==2.0.3
     # via requests
