@@ -27,9 +27,11 @@ def ls(chapter, describe):
     """
     if chapter:
         try:
+            click.echo(f"{cookbook[chapter].size:,} recipes")
             render_chapter(cookbook[chapter], describe)
         except ChapterNotFoundError as exc:
             click.echo(exc)
     else:
+        click.echo(f"{cookbook.size:,} recipes")
         for chapter in cookbook:
             render_chapter(chapter, describe)
