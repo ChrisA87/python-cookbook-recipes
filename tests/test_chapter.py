@@ -17,6 +17,7 @@ def test_Chapter_init(chapter, recipe_root_dir):
     assert chapter.recipes.keys() == {1, 2, 3}
     assert str(chapter) == "1) Test Chapter"
     assert chapter.__repr__() == "Chapter(number=1, name=01_test_chapter, recipes=3)"
+    assert chapter.size == 3
 
 
 def test_Chapter_indexing_found_returns_recipe(chapter):

@@ -12,6 +12,7 @@ def cookbook(recipe_root_dir):
 def test_CookBook_init(cookbook, recipe_root_dir):
     assert cookbook.cookbook_dir == recipe_root_dir
     assert cookbook.chapters.keys() == {1, 2, 3}
+    assert cookbook.size == 9
 
 
 def test_CookBook_indexing__exists(cookbook):
