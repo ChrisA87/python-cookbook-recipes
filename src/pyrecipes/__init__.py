@@ -1,7 +1,7 @@
 from pathlib import Path
 
 
-__version__ = "0.1.7"
+__version__ = "0.1.8"
 
 
 ROOT = Path(__file__).parent
