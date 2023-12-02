@@ -31,7 +31,7 @@ dynamic = ["version"]
 
 
 [project.scripts]
-recipes = "pyrecipes.cli.main:main"
+recipes = "pyrecipes.cli:main"
 
 
 [project.urls]
