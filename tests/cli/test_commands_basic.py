@@ -1,7 +1,7 @@
 import sys
 import pytest
 import shlex
-from pyrecipes.cli.main import main
+from pyrecipes.cli import main
 
 
 def patch_argv(monkeypatch, command):
