@@ -1,9 +1,7 @@
 """
 You need to select, insert or delete rows in a relational database.
 """
-import os
 import sqlite3
-from tempfile import NamedTemporaryFile
 
 
 def main():
@@ -15,8 +13,7 @@ def main():
     ]
     print("stocks:", stocks)
 
-    with NamedTemporaryFile() as f:
-        db = sqlite3.connect(os.path.abspath(f.name))
+    with sqlite3.connect(":memory:") as db:
         print(db)
 
         c = db.cursor()
