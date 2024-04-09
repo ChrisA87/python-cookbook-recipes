@@ -34,8 +34,11 @@ def countdown(n):
 
 
 def main():
-    for op, oparg in generate_opcodes(countdown.__code__.co_code):
-        print(op, opcode.opname[op], oparg)
+    try:
+        for op, oparg in generate_opcodes(countdown.__code__.co_code):
+            print(op, opcode.opname[op], oparg)
+    except Exception as exc:
+        print(exc)
 
 
 if __name__ == "__main__":
