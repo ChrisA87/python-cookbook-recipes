@@ -18,7 +18,7 @@ numpy==1.26.4
     # via -r requirements.in
 pytz==2024.1
     # via -r requirements.in
-requests==2.31.0
+requests==2.32.0
     # via -r requirements.in
 urllib3==2.1.0
     # via requests
