@@ -15,3 +15,8 @@ pip-install:
 	pip install pip-tools
 	pip-compile
 	pip-sync
+
+update:
+	pip-compile requirements/requirements.in -U
+	pip-compile requirements/test-requirements.in -U
+	pip install -e '.[all]'
