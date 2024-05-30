@@ -1,6 +1,5 @@
 import sys
 import click
-from traitlets import default
 from pyrecipes import TEMPLATE_DIR
 
 templates = {
