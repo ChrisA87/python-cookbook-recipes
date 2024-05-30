@@ -1,10 +1,10 @@
 import pytest
-from pyrecipes import COOKBOOK_DIR, TEMPLATE_PATH
+from pyrecipes import COOKBOOK_DIR, TEMPLATE_DIR
 import pyrecipes
 from pyrecipes.recipe import Recipe
 
 
-TEMPLATE = TEMPLATE_PATH.read_text()
+TEMPLATE = (TEMPLATE_DIR / "recipe.py").read_text()
 
 
 @pytest.fixture(params=list(COOKBOOK_DIR.glob("**/example.py")))

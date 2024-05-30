@@ -1,9 +1,9 @@
 from pathlib import Path
 
 
-__version__ = "0.2.5"
+__version__ = "0.2.6"
 
 
 ROOT = Path(__file__).parent
 COOKBOOK_DIR = ROOT / "recipes"
-TEMPLATE_PATH = ROOT / "template.py"
+TEMPLATE_DIR = ROOT / "templates"
