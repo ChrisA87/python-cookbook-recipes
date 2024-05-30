@@ -4,6 +4,7 @@ from .run import run
 from .chapters import chapters
 from .show import show
 from .search import search
+from .template import template
 
 
 @click.group(context_settings=dict(help_option_names=["-h", "--help"]))
@@ -16,3 +17,4 @@ main.add_command(run)
 main.add_command(chapters)
 main.add_command(show)
 main.add_command(search)
+main.add_command(template)
