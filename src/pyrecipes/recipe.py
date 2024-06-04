@@ -34,7 +34,7 @@ class Recipe:
     @property
     def package(self):
         if self.exists():
-            return f"pyrecipes.{self.path.parent.parent.parent.stem}"
+            return f"pyrecipes.{self.path.parents[2].stem}"
 
     @property
     def chapter_name(self):

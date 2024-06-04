@@ -162,3 +162,10 @@ sample = "sample:main"
 # If there are data files included in your packages that need to be
 # installed, specify them here.
 package-data = {"sample" = ["*.dat"]}
+
+
+[tool.setuptools.packages.find]
+# If you use src rather than flat layout, then specify the location
+# of your packages here.
+where = ["src"]
+include = ["sample*"]
