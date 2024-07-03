@@ -20,3 +20,6 @@ update:
 	pip-compile requirements/requirements.in -U
 	pip-compile requirements/test-requirements.in -U
 	pip install -e '.[all]'
+
+install:
+	pip install -e .
