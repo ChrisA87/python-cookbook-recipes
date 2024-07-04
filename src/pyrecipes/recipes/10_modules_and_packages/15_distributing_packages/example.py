@@ -46,8 +46,8 @@ my-script = "my_package.module:function"
 To build the package - from the package root directory - you can simply run:
 
     python -m build
-    
-    
+
+
 To distribute to the test PyPi repository, you can use the following command:
     python -m twine upload --repository testpypi dist/*
     """
