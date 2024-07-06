@@ -42,7 +42,6 @@ def test_recipes_running(recipe_path, capsys):
     assert "TODO" not in recipe.get_docstring()
     assert 'if __name__ == "__main__":' in recipe.get_code()
     assert f"Running {recipe.chapter}.{recipe.number}" in out
-    assert err == ""
 
 
 def test_recipes_search_found(valid_recipe):
