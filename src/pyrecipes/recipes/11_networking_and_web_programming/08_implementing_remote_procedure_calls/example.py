@@ -68,7 +68,7 @@ def main():
     handler.register_function(sub)
     t = Thread(
         target=rpc_server,
-        args=(handler, ("localhost", 17000), b"peekaboo"),
+        args=(handler, ("", 17000), b"peekaboo"),
         daemon=True,
     )
     t.start()
