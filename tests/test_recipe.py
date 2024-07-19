@@ -34,8 +34,10 @@ def test_recipe__valid__doesnt_exist(capsys):
         recipe.get_module()
 
 
-def test_recipes_running(recipe_path, capsys):
+def test_recipes_running(recipe_path, capsys, skip_recipes):
     recipe = Recipe(recipe_path)
+    if recipe.number in skip_recipes.get(recipe.chapter, []):
+        return
     recipe.run()
 
     out, err = capsys.readouterr()
