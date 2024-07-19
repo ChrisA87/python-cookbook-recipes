@@ -13,6 +13,15 @@ def recipe_path(request):
     yield request.param.parent
 
 
+@pytest.fixture
+def skip_recipes():
+    """
+    Skips recipes. Key refers to the chapter, the value refers to an array
+    of recipe numbers.
+    """
+    yield {11: [13]}
+
+
 @pytest.fixture(scope="session")
 def recipe_root_dir(tmp_path_factory):
     """Creates dummy recipe dir with chapters 1, 2, 3 each with 3 example recipes."""
